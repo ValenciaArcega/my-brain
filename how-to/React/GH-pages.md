@@ -10,13 +10,12 @@ npm install gh-pages
 ```
 
 Add the following lines
+👉 package.json
 ```
-// 👉 package.json
-
-homepage: 'https://valenciaarcega.github.io/project',
-scripts: {
-  predeploy: 'npm run build',
-  deploy: 'gh-pages -d dist',
+"homepage": "https://valenciaarcega.github.io/project",
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist",
 },
 ```
 

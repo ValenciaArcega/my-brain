@@ -1,0 +1,228 @@
+<!-- HTML : HyperText Markup Languaje-->
+<!DOCTYPE html>
+<!-- With that one we say to the browser wich extension is it -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- tools for inputs in iOS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <!-- meta extends for METADATA -->
+  <title>PageTitle</title>
+</head>
+
+<body>
+  <h1>We have 6 types of H tag</h1>
+  <p> Sup !
+    <strong> intead of ' b '</strong>
+    <em>instead of ' i '</em>
+  </p>
+
+  <!-- lists -->
+  <!-- order list -->
+  <ol></ol>
+  <!-- unorder list -->
+  <ul>
+    <!-- list item -->
+    <li></li>
+  </ul>
+
+  <!-- attributes -->
+  <img src="source" alt="alternative text">
+
+  <!-- hyperlinks -->
+  <a href="hypertext reference" target="_blank">Open blank page</a>
+
+  <!-- classes and ids -->
+  <!-- ids are unique for one element -->
+  <button class="btn__logOut" id="btn-logOut">Log out!</button>
+
+  <!-- tables -->
+  <table>
+    <thead>
+      <tr> table rows
+        <th>table header (like columns)</th>
+        <td>table data</td>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- containers -->
+  <header>
+    <nav></nav>
+  </header>
+  <main>
+    <aside></aside>
+    <article></article>
+    <footer> &copy; 2022</footer>
+    <!-- generic container, can affect the SEO -->
+    <div></div>
+</body>
+
+</html>
+
+
+<!-- CSS -->
+Pseudo-elements
+To declere we use two colons (::)
+We use them to modify a part of an element like the first letter in a h1
+
+<style>
+  h1::first-letter {
+    font-style: normal;
+  }
+
+  p::first-line {
+    color: red;
+  }
+
+  /*😲 To create an object without declare in the html we could use */
+  h1 {
+    position: relative;
+  }
+
+  h1::before
+
+  /* or after */
+    {
+    content: "TOP";
+    background-color: yellow;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: -15px;
+  }
+</style>
+
+
+
+Developer Skill #1
+Find for bugs or questions in docs::
+* MDN Documentation
+
+Developer Skill #2
+Find bugs::
+* HTML Validator
+
+
+
+
+
+Layout:
+We have 2 types of layouts:
+* Page Layout
+* Component Layout
+
+
+Flexbox::
+<style>
+  .container {
+    display: flex;
+  }
+</style>
+
+We have a flex container also we have flex items that are the childs that we have in our container, all
+these elements occupy the size that they need and are side by side.
+
+* If an element has 150px in height (is the tallest element), every items will have the same as well, always
+having the size that the content needs, all dependens on the propertie, i mean::
+
+
+main axis (horizontally)
+justify-content:
+
+cross axis (vertically)
+align-items: center
+
+<style>
+  .item {
+    align-items: center;
+    align-content: flex-start;
+    /* Left and top corner */
+    align-self: flex-end;
+    /* Left and bottom corner */
+    align-items: stretch;
+    /* Occupy all the space that the tallest element size has */
+  }
+</style>
+
+Then if we want to center the elements or give some espace we have the propertie:
+
+<style>
+  .item {
+    justify-content: center;
+    justify-items: space-between;
+    /* to give some gap between 'em */
+  }
+</style>
+
+
+To align an element in particular we gotta use:
+<style>
+  .item-one {
+    align-self: flex-start;
+
+    /* And to change the position we can use */
+    order: -1;
+    /* To the beginning */
+    order: 1, 2, 3;
+    /* To the end */
+  }
+</style>
+
+Now we have three more properties with flex:
+<style>
+  .items {
+    flex-grow: 1;
+    /* will divide the space of any item to fill the container, i we use this propertie in only one element, others will occupy just the size that they need and the element that u choose will fill the container */
+    flex-shrink: 0;
+    /* If is in 0 will respect the value on the basis */
+    flex-basis: 200px;
+    /* this is the width of the items */
+
+    flex: 1 0 200px;
+  }
+</style>
+
+
+
+
+
+CSS GRID::
+
+We have grid containers and grid items
+
+Grid Container:
+<style>
+  .container {
+    display: grid;
+
+    column-gap: 20px;
+    row-gap: 20px;
+    grid-gap: 10px;
+
+    grid-template-columns: 250px 150px 100px 50px;
+    grid-template-rows: 200px;
+  }
+</style>
+
+
+Grid items:
+<style>
+  .item {
+    grid-column: 1/4;
+    /* <start line>/<end line> */
+    grid-row: 1/3;
+    /* <start line>/<end line> */
+    ;
+  }
+</style>
+
+<style>
+  @media (width <=300px) {}
+
+  @media (orientation: portrait) {}
+
+  @media (orientation: landscape) {}
+</style>

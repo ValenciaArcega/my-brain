@@ -1,0 +1,113 @@
+{
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "breadcrumbs.enabled": false,
+    "chat.editor.wordWrap": "on",
+    "debug.terminal.clearBeforeReusing": true,
+    "diffEditor.wordWrap": "on",
+    "editor.autoClosingBrackets": "always",
+    "editor.autoClosingQuotes": "always",
+    "editor.bracketPairColorization.enabled": false,
+    "editor.cursorBlinking": "expand",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.folding": true,
+    "editor.fontFamily": "Fira Code Light",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 13,
+    "editor.glyphMargin": false,
+    "editor.guides.bracketPairsHorizontal": false,
+    "editor.guides.highlightActiveBracketPair": false,
+    "editor.guides.highlightActiveIndentation": false,
+    "editor.hover.above": false,
+    "editor.hover.sticky": true,
+    "editor.inlayHints.enabled": "off",
+    "editor.inlineSuggest.enabled": true,
+    "editor.lineDecorationsWidth": 0,
+    "editor.linkedEditing": true,
+    "editor.minimap.enabled": false,
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.size": "fit",
+    "editor.mouseWheelZoom": true,
+    "editor.parameterHints.cycle": false,
+    "editor.parameterHints.enabled": false,
+    "editor.quickSuggestions": {
+        "comments": "on",
+        "other": "on",
+        "strings": "on"
+    },
+    "editor.renderControlCharacters": false,
+    "editor.renderLineHighlight": "none",
+    "editor.renderWhitespace": "none",
+    "editor.suggest.showWords": false,
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.suggestSelection": "first",
+    "editor.tabSize": 2,
+    "editor.wordWrap": "on",
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "errorLens.borderRadius": "16px",
+    "errorLens.enabledDiagnosticLevels": [
+        "error",
+        "warning"
+    ],
+    "errorLens.fontFamily": "Inter",
+    "errorLens.fontSize": "10",
+    "errorLens.fontWeight": "400",
+    "errorLens.margin": "1ch",
+    "errorLens.messageBackgroundMode": "message",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "extensions.ignoreRecommendations": true,
+    "files.autoSaveDelay": 0,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.factorypath": true,
+        "**/.project": true,
+        "**/.settings": true
+    },
+    "html.format.wrapAttributes": "force",
+    "javascript.format.semicolons": "remove",
+    "javascript.preferences.quoteStyle": "double",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "json.sortOnSave.enable": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "symbols.hidesExplorerArrows": false,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorWidth": 2,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontWeight": "bold",
+    "terminal.integrated.tabs.defaultColor": "terminal.ansiBlue",
+    "terminal.integrated.tabs.defaultIcon": "remote-explorer",
+    "terminal.integrated.tabs.title": "Terminal",
+    "workbench.iconTheme": "symbols",
+    "workbench.startupEditor": "none",
+    "workbench.tree.indent": 16,
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.statusBar.visible": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "editor.accessibilitySupport": "off",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "editor.fontWeight": "bold",
+    "window.zoomLevel": 1,
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "editor.stickyScroll.maxLineCount": 1,
+    "editor.hover.enabled": false,
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    }
+}

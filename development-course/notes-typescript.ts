@@ -178,6 +178,43 @@ c = {
  * Type Indexing
  * ...
  */
+type HeroIndexing = {
+  isGood: boolean
+  address: {
+    city: string
+    country: string
+  }
+}
+
+const typeIndexingObj: HeroIndexing["address"] = {
+  country: "Mexico",
+  city: "Coacalco"
+}
+
+// Get a type from a value with "typeof"
+type typeFromValue = typeof typeIndexingObj
+// Get a type from a function return (not so useful)
+const getData = () => ({ name: "Juan", age: 23 })
+
+type typeFromFunctionReturn = ReturnType<typeof getData>
+
+const typeReturnType: typeFromFunctionReturn = {
+  name: "Some",
+  age: 2
+}
+
+/**
+ * Arrays
+ * Two ways of typing arrays
+ */
+const languages = [] // ⛔️ By default is "never"
+const arr: string[] = ["JavaScript", "TypeScript"]
+// or
+const arrSecondWay: Array<string> = ["", ""]
+// 👉 EVENT CUSTOM TYPES const a:Hero[] = []
+
+// different types
+const arrMultipleTypes: (string | number)[] = ["Text", 7]
 
 /**
  * Interfaces

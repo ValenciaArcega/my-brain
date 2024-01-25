@@ -95,6 +95,7 @@ avengers.forEach((avenger) => {
  * Type Alias (our own type)
  * the type name is always with PascalCase
  */
+// 👇 template union type... more down below
 type KeyUnique = `${string}-${string}-${string}-${string}-${string}`
 
 type Hero = {
@@ -192,13 +193,13 @@ const typeIndexingObj: HeroIndexing["address"] = {
 }
 
 // Get a type from a value with "typeof"
-type typeFromValue = typeof typeIndexingObj
+type TypeFromValue = typeof typeIndexingObj
 // Get a type from a function return (not so useful)
 const getData = () => ({ name: "Juan", age: 23 })
 
-type typeFromFunctionReturn = ReturnType<typeof getData>
+type TypeFromFunctionReturn = ReturnType<typeof getData>
 
-const typeReturnType: typeFromFunctionReturn = {
+const typeReturnType: TypeFromFunctionReturn = {
   name: "Some",
   age: 2
 }
@@ -211,10 +212,38 @@ const languages = [] // ⛔️ By default is "never"
 const arr: string[] = ["JavaScript", "TypeScript"]
 // or
 const arrSecondWay: Array<string> = ["", ""]
-// 👉 EVENT CUSTOM TYPES const a:Hero[] = []
+// 👉 EVEN CUSTOM TYPES const a:Hero[] = []
 
 // different types
 const arrMultipleTypes: (string | number)[] = ["Text", 7]
+
+const arrayDeArrays: number[][] = [[2]]
+
+/**
+ * Tuples
+ * Una tupla es un array que tiene un limite fijado de longitud
+ */
+type CellValue = "x" | "" | "o"
+type Dashboard = [
+  [CellValue, CellValue, CellValue],
+  [CellValue, CellValue, CellValue],
+  [CellValue, CellValue, CellValue],
+]
+
+const gato: Dashboard = [
+  ["x", "x", "o"],
+  ["o", "x", "o"],
+  ["x", "o", ""]
+]
+
+// state in React
+type State = [name: string, (newName: string) => void]
+// 👉 const [name, setName]:State = useState("Rosa")
+
+// colors RGB system
+type RGB = [number, number, number]
+const color: RGB = [0, 0, 0]
+
 
 /**
  * Interfaces

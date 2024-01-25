@@ -157,7 +157,7 @@ const color2: HexadecimalColors = "#f2f2f7";
 
 ## Union types
 
-      Condicional typing
+> Condicional typing, so powerful to can use more than one type
 
 ```ts
 let unionTypeB: number | boolean = true;
@@ -174,4 +174,110 @@ let hero: Hero = {
   // ⛔ levelPower: "MAMADISIMO"
   levelPower: "low",
 };
+```
+
+## Intersection types
+
+> Join types and pack in one
+
+```ts
+type HeroBasicInfo = {
+  name: string;
+  age: number;
+};
+
+type HeroProperties = {
+  levelPower: HeroPower;
+  enemy: string;
+};
+type HeroIntersected = HeroBasicInfo & HeroProperties;
+
+let c: HeroIntersected;
+c = {
+  name: "Pablo",
+  age: 23,
+  levelPower: "low",
+  enemy: "Me",
+};
+```
+
+## Type Indexing
+
+```ts
+type HeroIndexing = {
+  isGood: boolean;
+  address: {
+    city: string;
+    country: string;
+  };
+};
+
+const typeIndexingObj: HeroIndexing["address"] = {
+  country: "Mexico",
+  city: "Coacalco",
+};
+
+// Get a type from a value with "typeof"
+type TypeFromValue = typeof typeIndexingObj;
+
+// Get a type from a function return (not so useful)
+const getData = () => ({ name: "Juan", age: 23 });
+
+type TypeFromFunctionReturn = ReturnType<typeof getData>;
+const typeReturnType: TypeFromFunctionReturn = {
+  name: "Some",
+  age: 2,
+};
+```
+
+# Arrays
+
+> Two ways of typing arrays
+
+```ts
+const languages = []; // ⛔️ By default is "never"
+const arr: string[] = ["JavaScript", "TypeScript"];
+// or
+const arrSecondWay: Array<string> = ["", ""];
+// 👉 EVEN CUSTOM TYPES const a:Hero[] = []
+
+// different types
+const arrMultipleTypes: (string | number)[] = ["Text", 7];
+
+const arrayDeArrays: number[][] = [[2]];
+```
+
+## Tuples
+
+> Una tupla es un array que tiene un limite fijado de longitud
+
+```ts
+type CellValue = "x" | "" | "o";
+type Dashboard = [
+  [CellValue, CellValue, CellValue],
+  [CellValue, CellValue, CellValue],
+  [CellValue, CellValue, CellValue]
+];
+
+const gato: Dashboard = [
+  ["x", "x", "o"],
+  ["o", "x", "o"],
+  ["x", "o", ""],
+];
+```
+
+### State in React
+
+```js
+type State = [name: string, (newName: string) => void]
+
+const [name, setName]:State = useState("Rosa")
+```
+
+Colors RGB system
+
+```ts
+type RGB = [number, number, number];
+
+const color: RGB = [0, 0, 0];
 ```

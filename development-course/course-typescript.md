@@ -268,10 +268,10 @@ const gato: Dashboard = [
 
 ### State in React
 
-```js
-type State = [name: string, (newName: string) => void]
+```ts
+type State = [name: string, (newName: string) => void];
 
-const [name, setName]:State = useState("Rosa")
+const [name, setName]: State = useState("Rosa");
 ```
 
 Colors RGB system
@@ -281,3 +281,21 @@ type RGB = [number, number, number];
 
 const color: RGB = [0, 0, 0];
 ```
+
+## ENUMS
+
+> Use without const when using in other projects
+
+```ts
+const enum ERROR_TYPES {
+  NOT_FOUND, // 0
+  UNAUTHORIZED, // 1
+  FORBIDDEN, // 2
+  // or
+  FORBIDDEN = "forbidden",
+}
+```
+
+## Interfaces
+
+> To define the contract of an object, the structure , not knowing the inside

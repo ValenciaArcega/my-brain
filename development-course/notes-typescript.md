@@ -68,13 +68,17 @@ const a: string = (function (name: string, age: number) {
 });
 ```
 
-## Typing fn args and returns
+## Typing functions, args and returns
 
 ```ts
+function add (a: number): number { return a }
+
+// args
 function fnA(name: string, hasCar: boolean) {
   return hasCar
 }
 
+// function inside the args
 function (fn: (name: string, hasCar: boolean) => boolean) { // => void ✅
   console.log(fn("Alexandra", true)); // true
 }
@@ -299,3 +303,25 @@ const enum ERROR_TYPES {
 ## Interfaces
 
 > To define the contract of an object, the structure , not knowing the inside
+
+```ts
+interface Person {
+  age: number;
+  name: string;
+  hasDriverLincese: boolean;
+  _walk(): void;
+  _talk(): String;
+}
+
+class Hugo implements Person {
+  age = 23;
+  name = "Hugo";
+  hasDriverLincese: false;
+
+  _walk(): void {}
+
+  _talk(): string {
+    return "";
+  }
+}
+```

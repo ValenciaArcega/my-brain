@@ -10,11 +10,10 @@ const person = {
 };
 ```
 
-<div style="height:44px; width: 100%; background: #ffe3e3; border: 1px solid #fa5252; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: red; font-weight: 600;">
-⛔ any. Ignore the TS typing. AVOID ALWAYS
-</div>
-
-> When we donot know what type we use... unknown
+| Type    | Description                           |
+| ------- | ------------------------------------- |
+| any     | Ignore the TS typing. ⛔ AVOID ALWAYS |
+| unknown | When we donot know what type is       |
 
 ## Typing functions
 
@@ -31,9 +30,7 @@ saludar("Angel");
 
 > A function that recives an object as argument has different ways of typing
 
-<div style="height:44px; width: 100%; background: #ffe3e3; border: 1px solid #fa5252; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: red; font-weight: 600;">
-⛔ function ({ name: string, age: number }) { } rename obj properties
-</div><br>
+> ⛔ function ({ name: string, age: number }) { } rename obj properties
 
 ```ts
 // 1.
@@ -90,7 +87,7 @@ function (fn: (name: string, hasCar: boolean) => boolean) { // => void ✅
 let a = (a: number, b: number): number => a + b;
 ```
 
-> never: never's gonna return a value, is different to void
+> 💡never: never's gonna return a value, is different to void
 
 ```ts
 (function (message: string): never {

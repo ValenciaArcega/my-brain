@@ -1,17 +1,16 @@
-
-```
+```bash
 cd .config
 ```
 
-```
+```bash
 sudo mkdir -p lxsession/LXDE-pi
 ```
 
-```
+```bash
 sudo nano lxsession/LXDE-pi/autostart
 ```
 
-```
+```bash
 @lxpanel --profile
 LXDE-pi
 @pcmanfm --desktop

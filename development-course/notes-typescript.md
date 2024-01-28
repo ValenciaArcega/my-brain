@@ -299,7 +299,7 @@ const enum ERROR_TYPES {
 
 ## Interfaces
 
-> To define the contract of an object, the structure , not knowing the inside
+> To define the contract of an object, the structure (properties and methods), is like the elephant shadow, not knowing the inside. 99% are interchangeable with types
 
 ```ts
 interface Person {
@@ -317,8 +317,31 @@ class Hugo implements Person {
 
   _walk(): void {}
 
-  _talk(): string {
-    return "";
-  }
+  talk(language: string): string;
+  // or
+  talk: (language: string) => string;
+}
+```
+
+> The real differences are that interfaces can extends other interfaces and also write the same interface twice or even more times (isn't recommendable) because Interfaces are close to objects. Types are close to primitive types then becomes easy to use types in more commoun situations
+
+```ts
+interface Product {
+  name: string
+  price: number
+}
+interface Product {
+  store: string
+}
+
+interface Shoes extends Product {
+  size: string
+}
+
+const product: Shoes {
+  name: ,
+  price: ,
+  store: ,
+  size: ,
 }
 ```

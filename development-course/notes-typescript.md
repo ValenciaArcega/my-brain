@@ -52,7 +52,6 @@ const a: string = (function (name: string, age: number) {
   // return age = ⛔ Type 'number' is not assignable...
   return name;
 })("Alexandra", 21);
-// a = Alexandra
 
 (function (): string {
   // return 23 = ⛔ Type 'number' is not assignable...
@@ -87,7 +86,7 @@ function (fn: (name: string, hasCar: boolean) => boolean) { // => void ✅
 let a = (a: number, b: number): number => a + b;
 ```
 
-> 💡never: never's gonna return a value, is different to void
+> 💡 never: never's gonna return a value, is different to void
 
 ```ts
 (function (message: string): never {
@@ -117,11 +116,10 @@ avengers.forEach((avenger) => {
 type KeyUnique = `${string}-${string}-${string}-${string}-${string}`;
 
 type Hero = {
-  // avoid overwrite a property
-  readonly id?: KeyUnique;
+  readonly id?: KeyUnique; // avoid overwrite a property
   name: string;
-  age: number;
-  // ➕ to add an optional property
+  age: 23;
+  // to add an optional property
   isActive?: boolean;
 };
 
@@ -283,7 +281,7 @@ type RGB = [number, number, number];
 const color: RGB = [0, 0, 0];
 ```
 
-## ENUMS
+## Enums
 
 > Use without const when using in other projects
 
@@ -343,5 +341,45 @@ const product: Shoes {
   price: ,
   store: ,
   size: ,
+}
+```
+
+## Narrowing
+
+> Controling posible type errors
+
+```ts
+const gimmeString = (obj: string | number) => {
+  if (typeof obj === "string") {
+    return obj.length;
+  }
+
+  return obj.toString();
+};
+```
+
+## Type guard
+
+```ts
+interface Sonic {
+  company: string;
+  run(): void;
+}
+
+interface Mario {
+  company: string;
+  jump: () => void;
+}
+
+type Character = Sonic | Mario;
+
+function checkSonic(character: Character): character is Sonic {
+  return (character as Sonic).run() !== undefined;
+}
+
+function jugar(character: Character) {
+  if (checkSonic(character)) {
+    character.run();
+  }
 }
 ```

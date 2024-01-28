@@ -175,6 +175,20 @@ let hero: Hero = {
 };
 ```
 
+### Type never clear
+
+```ts
+function neverType(x: string | number) {
+  if (typeof x === "string") {
+    // do something...
+  } else if (typeof x === "number") {
+    // do something...
+  } else {
+    x; // --> never
+  }
+}
+```
+
 ## Intersection types
 
 > Join types and pack in one
@@ -297,30 +311,7 @@ const enum ERROR_TYPES {
 
 ## Interfaces
 
-> To define the contract of an object, the structure (properties and methods), is like the elephant shadow, not knowing the inside. 99% are interchangeable with types
-
-```ts
-interface Person {
-  age: number;
-  name: string;
-  hasDriverLincese: boolean;
-  _walk(): void;
-  _talk(): String;
-}
-
-class Hugo implements Person {
-  age = 23;
-  name = "Hugo";
-  hasDriverLincese: false;
-
-  _walk(): void {}
-
-  talk(language: string): string;
-  // or
-  talk: (language: string) => string;
-}
-```
-
+> To define the contract of an object, the structure (properties and methods), is like the elephant shadow, not knowing the inside. 99% are interchangeable with types  
 > The real differences are that interfaces can extends other interfaces and also write the same interface twice or even more times (isn't recommendable) because Interfaces are close to objects. Types are close to primitive types then becomes easy to use types in more commoun situations
 
 ```ts
@@ -341,6 +332,28 @@ const product: Shoes {
   price: ,
   store: ,
   size: ,
+}
+```
+
+```ts
+interface Person {
+  age: number;
+  name: string;
+  hasDriverLincese: boolean;
+  _walk(): void;
+  _talk(): String;
+}
+
+class Hugo implements Person {
+  age = 23;
+  name = "Hugo";
+  hasDriverLincese: false;
+
+  _walk(): void {}
+
+  talk(language: string): string;
+  // or
+  talk: (language: string) => string;
 }
 ```
 
@@ -383,3 +396,22 @@ function jugar(character: Character) {
   }
 }
 ```
+
+## Classes
+
+```ts
+class Avenger {
+  public name: string;
+  private powerScale: number;
+  protected wonBattles: number = 2;
+
+  constructor(name: string, powerScale: number) {
+    this.name = name;
+    this.powerScale = powerScale;
+  }
+}
+```
+
+## Conventions
+
+    Use types.d.ts to static types, NO CODE

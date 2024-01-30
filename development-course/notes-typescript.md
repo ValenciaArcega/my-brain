@@ -20,7 +20,7 @@ const person = {
 ## Typing functions
 
 > The TS inference DOESNOT make magic  
-> function (params:any) any by default so to change to void to ignore return
+> function (params:any) any by default so change to void to ignore return
 
 ```ts
 function saludar(name: string): void {
@@ -69,7 +69,9 @@ const a: string = (function (name: string, age: number) {
 ## Typing functions, args and returns
 
 ```ts
-function add (a: number): number { return a }
+function add (a: number): number { 
+  return a 
+}
 
 // args
 function fnA(name: string, hasCar: boolean) {

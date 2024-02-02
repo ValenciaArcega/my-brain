@@ -1,18 +1,21 @@
 # Gh-pages
-``` git init ```  
-``` git add . ```  
-``` git commit -m "first commit" ```  
-``` git push ```  
 
-Deployment dependency
-```
+First start the project with git following  
+`git init`
+`git add .` `git commit -m ""`
+`git push`
+
+### Deployment dependency
+
+```bash
 npm install gh-pages
 ```
 
 Add the following lines
-```
-// 👉 package.json
 
+> package.json
+
+```js
 homepage: 'https://valenciaarcega.github.io/project',
 scripts: {
   predeploy: 'npm run build',
@@ -21,6 +24,7 @@ scripts: {
 ```
 
 🚀
-```
+
+```bash
 npm run deploy
 ```

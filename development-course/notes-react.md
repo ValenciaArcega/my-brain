@@ -32,7 +32,48 @@ const Component = (props) => {
 
 > 👉 The paramether **props** is basically the object with the data
 
+But instead we can also use an object as a prop to avoid passing each value in the component
+
+```jsx
+<Pizza pizzaObj={obj} />
+```
+
+```jsx
+function Pizza(props) {
+  return (
+    <div className="pizza">
+      <img src={props.pizza0bj.url} />
+      <h3>{props.pizza0bj.name}</h3>
+      <p>{props.pizza0bj.price}</p>
+    </div>
+  );
+}
+```
+
+## Conditional rendering
+
+```jsx
+isOpen ? <p>Open</p> : <p>Close</p>;
+```
+
+### Short circuting for conditional rendering
+
+```js
+isOpen && <p>isOpen was falsy</p>;
+```
+
+Try to avoid evaluate numbers with the
+`&&` cause we will get that number printed to the user interface, instead we have to use an evaluation:
+
+```js
+numPizzas > 0 && <p></p>;
+```
+
+---
+
 ## ![ReviewingProps](image.png)
+
+---
 
 ## Hooks
 

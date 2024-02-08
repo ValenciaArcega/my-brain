@@ -15,14 +15,13 @@
 
     <main class="wrapper-items">
         <article class="item">
-            <h3>SomeTitle</h3>
-            <canvas></canvas>
+            <h3>1</h3>
         </article>
         <article class="item dNone">
-            <h3>SomeTitle></h3>
+            <h3>2</h3>
         </article>
         <article class="item dNone">
-            <h3>SomeTitle</h3>
+            <h3>3</h3>
         </article>
     </main>
 </section>
@@ -37,8 +36,7 @@
 
 .container-items {
   width: 100%;
-  height: 44rem;
-  height: 44rem;
+  height: 34rem;
   position: relative;
   display: flex;
   justify-content: center;
@@ -98,7 +96,7 @@
 
 ```js
 let currentIndex = 0;
-const arr = [0, 1, 2, 3, 4, 5];
+const arr = new Array(6);
 const items = document.querySelectorAll(".item");
 const btnPrev = document.querySelector(".btnPrev");
 const btnNext = document.querySelector(".btnNext");

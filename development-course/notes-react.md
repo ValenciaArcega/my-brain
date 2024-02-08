@@ -2,6 +2,17 @@
 
 > ⚛️ : It is a popular, declarative, state driven, component based, JavaScript library to build UI's
 
+## JSX Rules
+
+👉 JSX works essentially like HTML, but we can "scape" to JS usign `{}` for text or attribute
+<br/>  
+👉 We can place JS expressions inside the JS, like `reference variables`, `create arrays or objects`, `[].map()` or the ternary operator
+<br/>  
+👉 Statements are not allowed `(if/else, for, switch)`
+<br/>  
+👉 A piece of JSX can only have one root element. If you
+need more, use `<React.Fragment>` (or the short `< >`)
+
 ## Props
 
 Data that travels between components, usually since parent elements to child elements, is like the communication channel for components
@@ -23,25 +34,9 @@ const Component = (props) => {
 
 ## ![ReviewingProps](image.png)
 
-## Virtual DOM 🌳
-
-> En lugar de re-renderizar todo el arbol de elementos en cada cambio, solo actualiza aquellos que han sufrido un cambio de estado, lo que hace es hacerle una **foto al DOM** la primera vez y cada vez, hace las modificaciones mínimas de manera casi quirurjica, la única regla es la propagación de cambios a los componentes hijos.
-
 ## Hooks
 
 Utilidades que añaden funcionalidad a los componentes, o ejecutar cierto código arbritrario cuando ocurre algo en los componentes
-
-### useState
-
-```jsx
-const state = useState(false);
-
-const isFollowing = state[0];
-const setIsFollowing = state[1]; // Upd the state
-
-// applying destructuring
-const [isFollowing, setIsFollowing] = useState(false);
-```
 
 ### useEffect
 
@@ -63,3 +58,19 @@ useEffect(() => {
 **Commun use**
 
 > 👉 Manipulate the state that had been pass as a prop from one component to another.
+
+### useState
+
+```jsx
+const state = useState(false);
+
+const isFollowing = state[0];
+const setIsFollowing = state[1]; // Upd the state
+
+// applying destructuring
+const [isFollowing, setIsFollowing] = useState(false);
+```
+
+## Virtual DOM 🌳
+
+> En lugar de re-renderizar todo el arbol de elementos en cada cambio, solo actualiza aquellos que han sufrido un cambio de estado, lo que hace es hacerle una **foto al DOM** la primera vez y cada vez, hace las modificaciones mínimas de manera casi quirurjica, la única regla es la propagación de cambios a los componentes hijos.

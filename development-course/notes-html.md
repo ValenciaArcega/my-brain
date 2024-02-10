@@ -74,7 +74,7 @@ ID's are unique for one element in the DOM tree
 </table>
 ```
 
-## Container
+## Containers
 
 ```html
 <header>

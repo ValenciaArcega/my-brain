@@ -81,10 +81,18 @@ or
 isOpen ? <p>Open</p> : <p>Close</p>;
 ```
 
-#### Short circuting
+### Short circuting
 
 ```js
 isOpen && <p>isOpen was falsy</p>;
+```
+
+##### For className property
+
+We can "scape" twice for JS code inside jsxs
+
+```jsx
+className={`some ${var && ""}`}
 ```
 
 Try to avoid evaluate numbers with the

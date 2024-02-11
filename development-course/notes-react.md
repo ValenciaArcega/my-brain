@@ -13,9 +13,14 @@
 👉 A piece of JSX can only have one root element. If you
 need more, use `<React.Fragment>` (or the short `< >`)
 
+## Virtual DOM 🌳
+
+> En lugar de re-renderizar todo el arbol de elementos en cada cambio, solo actualiza aquellos que han sufrido un cambio de estado, lo que hace es hacerle una **foto al DOM** la primera vez y cada vez, hace las modificaciones mínimas de manera casi quirurjica, la única regla es la propagación de cambios a los componentes hijos.
+
 ## Props
 
-Data that travels between components, usually since parent elements to child elements, is like the communication channel for components
+Data that travels between components, usually since parent elements to child elements, is like the communication channel for components.  
+<br>
 To set the data we use
 
 ```jsx
@@ -50,13 +55,33 @@ function Pizza(props) {
 }
 ```
 
+### Destructuring props
+
+```jsx
+function Pizza({ pizzaObj }) {
+  return (
+    <div className="pizza">
+      <img src={pizza0bj.url} />
+      <h3>{pizza0bj.name}</h3>
+      <p>{pizza0bj.price}</p>
+    </div>
+  );
+}
+```
+
 ## Conditional rendering
+
+```jsx
+<p>{isOpen ? "Open" : "Close"}</p>
+```
+
+or
 
 ```jsx
 isOpen ? <p>Open</p> : <p>Close</p>;
 ```
 
-### Short circuting for conditional rendering
+#### Short circuting
 
 ```js
 isOpen && <p>isOpen was falsy</p>;
@@ -77,28 +102,7 @@ numPizzas > 0 && <p></p>;
 
 ## Hooks
 
-Utilidades que añaden funcionalidad a los componentes, o ejecutar cierto código arbritrario cuando ocurre algo en los componentes
-
-### useEffect
-
-It is a hook that allows execute arbitraty code when the component has been loaded in the DOM OR for each time that the dependencies change
-
-> It's like an event listener, but instead to listen an event is listening to a variable or state change
-
-This hook will run AT LEAST once by default, and wiv no dependencies if the second parameter(list) is not passed, the _Effect_ will be executed each time the component renders
-
-```js
-useEffect(() => {
-  // a best practice is to call fn
-  // not write code (f.e. fetch or loops)
-  console.log("I just ran once!");
-}, [dependency]);
-// make sure u really need the dependency
-```
-
-**Commun use**
-
-> 👉 Manipulate the state that had been pass as a prop from one component to another.
+Utilidades que añaden funcionalidad a los componentes, o ejecutar cierto código arbritrario cuando ocurre algo en los componentes.
 
 ### useState
 
@@ -112,6 +116,47 @@ const setIsFollowing = state[1]; // Upd the state
 const [isFollowing, setIsFollowing] = useState(false);
 ```
 
-## Virtual DOM 🌳
+### useEffect
 
-> En lugar de re-renderizar todo el arbol de elementos en cada cambio, solo actualiza aquellos que han sufrido un cambio de estado, lo que hace es hacerle una **foto al DOM** la primera vez y cada vez, hace las modificaciones mínimas de manera casi quirurjica, la única regla es la propagación de cambios a los componentes hijos.
+It is a hook that allows execute arbitraty code when the component has been loaded in the DOM OR for each time that the dependencies change
+
+> It's like an event listener, but instead to listen an event is listening to a variable or state change
+
+This hook will run AT LEAST once by default, and wiv no dependencies if the second parameter(list) is not passed, the _Effect_ will be executed each time the component renders.  
+<br>
+Execute once the component has been rendered
+
+```js
+useEffect(() => {});
+```
+
+This hook **cannot** recive an asyncronis fn
+
+```js
+⛔️
+useEffect(async () => {}, []);
+```
+
+But inside can have an async fn
+
+```js
+✅
+useEffect(() => {
+  async callApi()...
+
+  callApi()
+}, []);
+```
+
+```js
+useEffect(() => {
+  // a best practice is to call fn
+  // not write code (f.e. fetch or loops)
+  console.log("I just ran once!");
+}, [dependency]);
+// make sure u really need the dependency
+```
+
+**Commun use**
+
+> 👉 Manipulate the state that had been pass as a prop from one component to another.

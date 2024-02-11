@@ -1,4 +1,6 @@
-# React
+# React with Vite
+
+Create the project with the latest version
 
 ```bash
 npm create vite@latest

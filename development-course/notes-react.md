@@ -102,7 +102,27 @@ Try to avoid evaluate numbers with the
 numPizzas > 0 && <p></p>;
 ```
 
----
+## Events
+
+To handle an event on each component or element we have to use the camelCase notation and pass a _function value_ instead write direct the code inside
+
+```html
+<p onClick="{}"></p>
+```
+
+Also works for passing a function
+
+```js
+function doSomething() {}
+
+return <p onMouseEntered={doSomething}></p>;
+```
+
+or
+
+```html
+<p onMouseEntered={() => doSomething()}></p>
+```
 
 ## ![ReviewingProps](image.png)
 
@@ -110,11 +130,37 @@ numPizzas > 0 && <p></p>;
 
 ## Hooks
 
-Utilidades que añaden funcionalidad a los componentes, o ejecutar cierto código arbritrario cuando ocurre algo en los componentes.
+Utilities that add functionality to the components, or execute certain arbitrary code when something happens in the components. It starts with `use()`
 
-### useState
+> Are functions with top level use, it means that can only be use in the main scope of the component
 
-```jsx
+```js
+function someFn () {
+  ❌ use___()
+}
+```
+
+or in loops or statements
+
+```js
+if (true) {
+  ❌ use___()
+}
+```
+
+### `useState`
+
+State is the most important concept in React, is a tool that allows to persist local variables between renders
+
+> 💡 The own data of a component. Update component state triggers React to re-render the component
+
+```js
+import { useState } from "react";
+
+useState(defaultValue);
+```
+
+```js
 const state = useState(false);
 
 const isFollowing = state[0];
@@ -124,7 +170,11 @@ const setIsFollowing = state[1]; // Upd the state
 const [isFollowing, setIsFollowing] = useState(false);
 ```
 
-### useEffect
+> 💡 Never try to update the state manually
+
+In React we never manipulate the DOM, cause it's declarative, and thats why the name is _React_ because **reacts** to state changes by re-rendering th UI.
+
+### `useEffect`
 
 It is a hook that allows execute arbitraty code when the component has been loaded in the DOM OR for each time that the dependencies change
 

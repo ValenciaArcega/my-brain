@@ -1,10 +1,10 @@
 # Enrutado
 
-Cuando pulsas un enlace en el navegador, en aplicaciones con más de una página, es enviada una petición al servidor antes de que la página HTML se muestre.
+Al enrutar, el contenido de la página es creado a partir de componentes. Así que lo que hace React Router es interceptar la petición que se envía al servidor y luego inyectar el contenido dinámicamente desde los componentes que se han creado.
 
-En React, el contenido de la página es creado a partir de componentes. Así que lo que hace React Router es interceptar la petición que se envía al servidor y luego inyectar el contenido dinámicamente desde los componentes que se han creado.
+> Normalmente, cuando se da click en un enlace del navegador, en aplicaciones con más de una página, es enviada una petición al servidor antes de que la página HTML se muestre.
 
-Esta es la idea general detrás de las SPA, que permiten que el contenido se muestre más rápido sin que la página sea actualizada.
+Esta es la idea general detrás de las SPA (Single Page Application), permitir que el contenido se muestre más rápido sin que la página sea actualizada.
 
 # React Router Dom
 
@@ -15,13 +15,12 @@ npm install react-router-dom -E
 > 👉 main.jsx
 
 ```js
-import { BrowserRouter, HashRouter } from "react-router-dom";
-// getElementById("#app")
+import { BrowserRouter } from "react-router-dom";
+
 render(
-  <HashRouter>
-    {" "}
-    <App />{" "}
-  </HashRouter>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
 ```
 

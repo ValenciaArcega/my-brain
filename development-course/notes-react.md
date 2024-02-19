@@ -164,7 +164,7 @@ useState(defaultValue);
 const state = useState(false);
 
 const isFollowing = state[0];
-const setIsFollowing = state[1]; // Upd the state
+const setIsFollowing = state[1]; // upd state
 
 // applying destructuring
 const [isFollowing, setIsFollowing] = useState(false);

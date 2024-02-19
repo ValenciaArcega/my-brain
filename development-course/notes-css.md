@@ -48,3 +48,21 @@ article header p {
   box-shadow: 0px 5px 15px -4px rgba(0, 0, 0, 0.3);
 }
 ```
+
+## Nested CSS
+
+```css
+.example {
+  font-size: 1.2rem;
+
+  & > a {
+    color: tomato;
+
+    &:hover,
+    &:focus {
+      color: ivory;
+      background-color: tomato;
+    }
+  }
+}
+```

@@ -140,7 +140,7 @@ function someFn () {
 }
 ```
 
-or in loops or statements
+Neither in loops or statements
 
 ```js
 if (true) {
@@ -218,3 +218,5 @@ useEffect(() => {
 **Commun use**
 
 > 👉 Manipulate the state that had been pass as a prop from one component to another.
+
+... 🛠️ building

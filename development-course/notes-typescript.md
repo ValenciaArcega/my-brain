@@ -69,8 +69,8 @@ const a: string = (function (name: string, age: number) {
 ## Typing functions, args and returns
 
 ```ts
-function add (a: number): number { 
-  return a 
+function add (a: number): number {
+  return a
 }
 
 // args
@@ -113,7 +113,7 @@ avengers.forEach((avenger) => {
 
 ## Type Alias (our own type)
 
-      The type name is always with PascalCase
+    ⚠️ The type name is always with PascalCase
 
 ```ts
 // 👇 template union type... more down below
@@ -148,7 +148,7 @@ const angel = createHero({ name: "Angel", age: 24 });
 
 ## Template union types
 
-      Can be for regular expressions or something else
+Can be for regular expressions or something else
 
 ```ts
 type KeyUnique = `${string}-${string}-${string}-${string}-${string}`;
@@ -160,7 +160,7 @@ const color2: HexadecimalColors = "#f2f2f7";
 
 ## Union types
 
-> Condicional typing, so powerful to can use more than one type
+Condicional typing, so powerful to can use more than one type
 
 ```ts
 let unionTypeB: number | boolean = true;
@@ -195,7 +195,7 @@ function neverType(x: string | number) {
 
 ## Intersection types
 
-> Join types and pack in one
+Join types and pack in one
 
 ```ts
 type HeroBasicInfo = {
@@ -249,7 +249,7 @@ const typeReturnType: TypeFromFunctionReturn = {
 
 # Arrays
 
-> Two ways of typing arrays
+There are 2 ways of typing arrays []
 
 ```ts
 const languages = []; // ⛔️ By default is "never"
@@ -266,7 +266,7 @@ const arrayDeArrays: number[][] = [[2]];
 
 ## Tuples
 
-> Una tupla es un array que tiene un limite fijado de longitud
+A tuple is an array that has a fixed length limit.
 
 ```ts
 type CellValue = "x" | "" | "o";
@@ -301,7 +301,7 @@ const color: RGB = [0, 0, 0];
 
 ## Enums
 
-> Use without const when using in other projects
+Use without const when using in other projects
 
 ```ts
 const enum ERROR_TYPES {
@@ -315,7 +315,8 @@ const enum ERROR_TYPES {
 
 ## Interfaces
 
-> To define the contract of an object, the structure (properties and methods), is like the elephant shadow, not knowing the inside. 99% are interchangeable with types  
+To define the contract of an object, the structure (properties and methods), is like the elephant shadow, not knowing the inside. 99% are interchangeable with types
+
 > The real differences are that interfaces can extends other interfaces and also write the same interface twice or even more times (isn't recommendable) because Interfaces are close to objects. Types are close to primitive types then becomes easy to use types in more commoun situations
 
 ```ts
@@ -363,7 +364,7 @@ class Hugo implements Person {
 
 ## Narrowing
 
-> Controling posible type errors
+For controling posible type errors
 
 ```ts
 const gimmeString = (obj: string | number) => {
@@ -418,4 +419,6 @@ class Avenger {
 
 ## Conventions
 
-    Use types.d.ts to static types, NO CODE
+Use `types.d.ts` to static types, NO CODE
+
+... 🛠️ building

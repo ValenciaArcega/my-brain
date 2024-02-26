@@ -152,7 +152,7 @@ if (true) {
 
 State is the most important concept in React, is a tool that allows to persist local variables between renders
 
-> 💡 The own data of a component. Update component state triggers React to re-render the component
+> 💡 The own data of a component. Update component state triggers React to re-render the component. Like the component memory because keeps the state even though render over and over again.
 
 ```js
 import { useState } from "react";

@@ -1592,3 +1592,139 @@ a.addEventListener("click", (e) => {
   e.stopPropagation(); // stop bubbling up
 });
 ```
+
+## Intersection Oberser API
+
+```js
+const obsOptions = {
+  // the target to intersect
+  root: null, // entire viewport
+  threshold: 0.1, // percentage that we wanna have of our element into the root (the viewport in this case)
+};
+// this callback will be executing each time that the target reach the root in the threshold(percentage) defined
+function obsCallback(entries, observer) {
+  entries.forEach(function (entry) {
+    // this gonna return an object with paramethers as the ratio or if isIntersecting
+    console.log(entry);
+  });
+}
+const observer = new IntersectionObserver(obsCallback, obsOptions);
+observer.observe("someHTML__target");
+
+// real application
+const heightNav = HTML.getBoundingClientRect().height;
+const stickyNav = function (entries) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) HTML.classList.add("sticky");
+  else HTML.classList.remove("sticky");
+};
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${heightNav}px`,
+});
+headerObserver.observe(header);
+
+// Revealing Elements on Scroll
+const allSections = document.querySelectorAll(".section");
+function revealSection(entries, observer) {
+  const [entry] = entries;
+  console.log(entry); // { isIntersecting: true... }
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove("hidden");
+  // to stop throwing events (object 'entry')
+  observer.unobserve(entry.target);
+}
+const sectionObserve = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+allSections.forEach((section) => {
+  sectionObserve.observe(section);
+  section.classList.add("hidden");
+});
+```
+
+## Dom traversing
+
+```js
+const h1 = document.querySelector("h1");
+// going downwards: child
+h1.querySelectorAll(".highlight");
+h1.childNodes; // anything (text, comments, etc)
+h1.children; // HTML collection
+h1.firstElementChild.style.color = "white";
+h1.lastElementChild.style.color = "orangered";
+
+// going upwards: parents
+h1.parentNode; // whos the direct parent fi: <section>
+// closets('') opposite to querySelector(childs)
+h1.closest(".header").style.background = "var(--some)";
+h1.closest(".h1"); // the element itself
+
+// going sideways: siblings
+h1.previousElementSibling;
+h1.nextElementSibling; // null if does not have
+```
+
+## OOP
+
+To avoid spagetti code and based on 4 fundamentals:
+👉 Abstraction: 📱 📲
+👉 Encapsulation: 🔐 methods in a class
+👉 Inheritance: a child class can inherit (extends and super)
+👉 Polymorphism: many shapes on other classes
+
+```js
+// class (blueprint)
+const buildPrototype = {
+  1: "Constructor functions",
+  2: "ES6 classes",
+  3: "Object.create()",
+};
+```
+
+### Prototypes
+
+Each function has a property call "prototype"
+
+### Classes
+
+Syntactic Sugar; just a special type of functions based in prototypes.
+
+```js
+// class expression
+const PersonEx = class {};
+
+// class declaration
+class Person {
+  // first step: add a constructor
+  constructor(name, birthYear) {
+    this.name = name;
+    this.birthYear = birthYear;
+  }
+
+  // methods will be added to .prototype property
+  calcAge() {
+    console.log(2023 - this.birthYear);
+  }
+}
+
+const jess = new Person("Jessica", 2001);
+jess.calcAge(); // 22
+
+console.log(jess.__proto__ === Person.prototype); // true
+
+// other way 🤔
+Person.prototype.greet = function () {
+  console.log(`hey ${this.name}`);
+};
+jess.greet(); // hey Jessica
+```
+
+**To keep in mind**
+👉 classes are not hoisted (cannot be use before declaration)
+👉 classes are first-class citizes
+👉 classes are executed in strict mode

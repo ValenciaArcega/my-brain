@@ -1370,3 +1370,225 @@ console.log(isEven(9)); // false
   // if (i % 3 === 0) row.style.backgroundColor = 'blue'
 });
 ```
+
+### Working with BigInt
+
+```js
+Number.MAX_SAFE_INTEGER;
+// if u try to operate wiv more than this the data gonna be inprecise
+2 ** 53 - 1; // 13982139819038219038129381
+13982139819038219038129381n;
+// or
+BigInt(13982139819);
+// operations: just between big numbers
+100000n + 100000n;
+
+20n === 20; // false
+// type cohertion
+20n == 20; // true
+typeof 20n; // bigInt
+
+// ❌ Math does not work here
+```
+
+## Dates
+
+```js
+const now = new Date();
+new Date("December 24, 2015"); // 2015-12-24T06:00:00.000Z
+new Date(2037, 10, 19, 15, 23, 5); // november cuz is 0 based
+
+// working with dates
+const future = new Date(2037, 10, 19, 15, 23);
+future.getFullYear();
+future.getMonth(); // 10
+future.getDate(); // 19
+future.getDay(); // 0 is Sunday // 4
+future.getHours(); // 15
+future.getMinutes();
+future.getSeconds();
+// international standard
+future.toISOString();
+future.getTime;
+
+Date.now();
+
+// also setters
+future.setFullYear(2040);
+```
+
+## Internatilization API (`Intl`)
+
+Format numbers or string by languages
+
+```js
+const now = new Date();
+const options = {
+  hour: "numeric",
+  minute: "numeric",
+  day: "numeric",
+  month: "long", // numeric || 2-digit
+  year: "numeric", // 2-digit
+  weekday: "long",
+};
+// ISO language table (lingoes.net)
+let a = new Intl.DateTimeFormat("en-GB", options).format(now);
+a; // 'Tuesday, 4 April 2023 at 09:43'
+
+// from user browser
+const locale = navigator.language;
+let b = new Intl.DateTimeFormat(locale, options).format(now);
+b; // 'martes, 4 de abril de 2023, 09:46'
+
+// numbers
+const num = 3898398.23;
+const options2 = {
+  style: "currency", // unit
+  unit: "celsius", // mile-per-hour || much more
+  currency: "EUR", // we have to do it manually
+  // useGrouping: false,
+};
+new Intl.NumberFormat("pt-BR", options2).format(num);
+new Intl.NumberFormat("es-MX", options2).format(num);
+```
+
+## Timers
+
+`setTimeout()` just execute ones.
+
+```js
+const ingredients = ["piña", "salchicha"];
+const pizzaTimer = setTimeout(
+  function (ing1, ing2) {
+    console.log(`Here is ur pizza with ${ing1} and ${ing2}`);
+  },
+  3000,
+  ...ingredients
+);
+
+// stop the timer
+if (ingredients.includes("piña")) clearTimeout(pizzaTimer);
+```
+
+`setInterval()` run a function over over again
+
+```js
+/*setInterval(() => {
+    const now = new Date()
+    console.log(now)
+  }, 50000)*/
+let time = 100;
+const timer = setInterval(() => {
+  const min = String(Math.trunc(time / 60)).padStart(2, 0);
+  const sec = String(time % 60).padStart(2, 0);
+  labelTimer.textContent = `${min}:${sec}`;
+
+  if (time === 0) clearInterval(timer);
+  time--;
+}, 900000);
+```
+
+## DOM manipulation
+
+```js
+document.documentElement; // whole the HTML
+const header = document.getElementById("header");
+const sections = document.querySelectorAll(".sections");
+// ☝ return a node list
+// 👇 convert to an array
+const sections = Arrar.from(document.querySelectorAll(".sections"));
+const allButtons = document.getElementsByTagName("button");
+// ☝ 👇 return HTML Collection if the DOM changes this will update automatically
+document.getElementsByClassName("btn");
+
+// creating
+// .insertAdjacentHTML()
+const message = document.createElement("div");
+message.classList.add("cookie-message");
+message.textContent = "We use cookies...";
+message.innerHTML = '<button class="some">Got it!</button>';
+
+// inserting
+header.prepend(message); // add the child as first one
+header.append(message); // add the child as last one
+// there cannot be more than one in the DOM so...
+header.append(message.cloneNode(true));
+// sibling of the parent
+header.before(message);
+header.after(message);
+
+// deleting
+message.remove();
+```
+
+### Styles
+
+```js
+const a = document.querySelector(".some");
+a.style.backgroundColor = "#fff";
+a.style.width = "120%";
+// ❌
+a.style.color; // nothing cuz we not defined here
+
+getComputedStyle(message).color; //rgb
+a.style.height = Number.parseFloat(getComputedStyle(a).height, 10) + 30 + "px";
+
+// css custom properties
+document.querySelector(":root");
+// to set new values
+document.documentElement.style.setProperty("--var", "12px");
+```
+
+## Attributes
+
+```js
+const logo = document.querySelector("nav__logo");
+logo.src; // http://127...some/some.png
+logo.className; // nav__logo
+// set
+logo.alt = "New alternative text";
+
+// non.standard
+logo.designer; // undefined
+// so...
+logo.getAttribute("designer"); // Angel
+logo.getAttribute("src"); // some/some.png
+// to create
+logo.setAttribute("company", "Bankist");
+
+// Data attributes
+// <img data-version-number='3.0'>
+logo.dataset.versionNumber; // 3.0
+
+// donot use, cuz overwrite whole classes
+logo.className = "jonas";
+// Classes
+logo.classList.add("h");
+logo.classList.remove("h");
+logo.classList.toggle("h");
+logo.classList.contains("h");
+```
+
+## Types of events n event handlers
+
+```js
+const a = document.querySelector("#some");
+const fun = (e) => alert("some");
+
+a.addEventListener("mouseenter", fun);
+// older way : a.onmouseenter = function () {}
+
+// remove ❌
+setTimeout(() => a.removeEventListener("mouseenter", fun), 3000);
+```
+
+## Event Propagation: Bubbling and Capturing
+
+```js
+const a = document.querySelector(".some");
+a.addEventListener("click", (e) => {
+  e.target; // where the event gonna happen
+  e.currentTarget; // this
+  e.stopPropagation(); // stop bubbling up
+});
+```

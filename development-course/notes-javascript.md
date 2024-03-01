@@ -1789,24 +1789,40 @@ SomeClass.hey(); // Hey there 👋
 
 ## Promises
 
+An special _object type_ that returns an error or fullfill asynchronous operation.
+
+The "_older_" way to handle promises is the `.then()` method. Is not deprecated however when is used to handle multiple promises can generate the _callback hell_ (nested code each time promise is resolved).
+
 ```js
 fetch("https://randomuser.me/api?results=1")
   .then((res) => res.json())
-  .then((res) => console.log(res));
+  .then((res) => console.log(res))
+  .catch((e) => console.log("Error" + e))
+  .finally(() => {});
+```
 
+### Async / await
+
+This is the modern way to work with promises and catch results, just to avoid get the callback hell.
+
+```js
 async function someOne() {
   try {
     const a = await fetch("https://randomuser.me/api?results=1");
     const b = await a.json();
+
     console.log(b);
   } catch (err) {
     console.log(err);
+  } finally {
+    // executes regardless if was an error or fullfill
   }
 }
 
 async function someTwo() {
   const a = await fetch("https://jsonplaceholder.typicode.com/users");
   const b = await a.json();
-  console.log(b);
+
+  console.log(b); // [{}, {}, {}]
 }
 ```

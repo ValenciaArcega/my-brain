@@ -174,6 +174,44 @@ const [isFollowing, setIsFollowing] = useState(false);
 
 In React we never manipulate the DOM, cause it's declarative, and thats why the name is _React_ because **reacts** to state changes by re-rendering th UI.
 
+### Controlled elements
+
+Those are elements that now React can control, to achieve this behavior it may follow the next rules:
+
+1. Create a pience of state and change the value of the element to that existing state
+
+```jsx
+const [idUser, setIdUser] = useState(false)
+
+<input value={idUser}>
+```
+
+2. Handle an event to the element and triggers a state change
+
+```html
+<input value={idUser} onChange={(e) => setIdUser(e.target.value)} />
+```
+
+### Derived state
+
+Keep states as simple as posible, try to create 'em just when is neccessary and if is not, just store or calc in variables.
+
+## Children prop
+
+This prop exist in every component and takes all the content between the opening and closing tag of the component.
+
+```js
+<Button>
+  <span>👈</span> Previous text
+</Button>
+```
+
+```js
+function Button({ children }) {
+  return <button>{children}</button>;
+}
+```
+
 ### `useEffect`
 
 It is a hook that allows execute arbitraty code when the component has been loaded in the DOM OR for each time that the dependencies change
@@ -190,26 +228,28 @@ useEffect(() => {});
 
 This hook **cannot** recive an asyncronis fn
 
-```js
 ⛔️
+
+```js
 useEffect(async () => {}, []);
 ```
 
-But inside can have an async fn
+But inside can have or call an async fn
+
+✅
 
 ```js
-✅
 useEffect(() => {
-  async callApi()...
+  async function callApi()...
 
   callApi()
 }, []);
 ```
 
+A best practice is to call fn instead write code (f.e. fetch or loops)
+
 ```js
 useEffect(() => {
-  // a best practice is to call fn
-  // not write code (f.e. fetch or loops)
   console.log("I just ran once!");
 }, [dependency]);
 // make sure u really need the dependency

@@ -6,27 +6,31 @@ The closest `structure` to what can be found is as follows:
 
 ```
 ├── design-course
-│    	├── dictionary
-│    	└── guidelines
+│     ├── dictionary
+│     └── guidelines
+│
 ├── development-course
-│    	├── notes-css.css
-│		├── notes-css.md
-│		├── notes-html.md
-│		├── notes-javascript.js
-│		├── notes-javascript.md
-│		├── notes-typescript.md
-│		└── notes-react.md
+│     ├── notes-css.css
+│     ├── notes-css.md
+│     ├── notes-html.md
+│     ├── notes-javascript.js
+│     ├── notes-javascript.md
+│     ├── notes-typescript.md
+│     └── notes-react.md
+│
 ├── how-to
-│    	├── csharp
-│		├── nodejs
-│		├── react-native-expo
-│		├── react-vite
-│		└── etc...
+│     ├── csharp
+│     ├── nodejs
+│     ├── react-native-expo
+│     ├── react-vite
+│     └── etc...
+│
 ├── tooling
-│    	├── csharp
-│		├── css
-│		├── js
-│		├── react
-│		└── etc...
+│     ├── csharp
+│     ├── css
+│     ├── js
+│     ├── react
+│     └── etc...
+│
 └── etc...
 ```

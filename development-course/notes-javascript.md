@@ -1826,3 +1826,5 @@ async function someTwo() {
   console.log(b); // [{}, {}, {}]
 }
 ```
+
+> ⚠️ To deal with `fetch` problems we can inspect the API issue with _DevTools_, just be opening the **Netkwork** tab, then click on **Fetch/XHR** and select the request details down.

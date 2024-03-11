@@ -172,25 +172,7 @@ const [isFollowing, setIsFollowing] = useState(false);
 
 > 💡 Never try to update the state manually
 
-In React we never manipulate the DOM, cause it's declarative, and thats why the name is _React_ because **reacts** to state changes by re-rendering th UI.
-
-### Controlled elements
-
-Those are elements that now React can control, to achieve this behavior it may follow the next rules:
-
-1. Create a pience of state and change the value of the element to that existing state
-
-```jsx
-const [idUser, setIdUser] = useState(false)
-
-<input value={idUser}>
-```
-
-2. Handle an event to the element and triggers a state change
-
-```html
-<input value={idUser} onChange={(e) => setIdUser(e.target.value)} />
-```
+In React we never manipulate the DOM, cause it's declarative, and thats why the name is _React_ because **reacts** to state changes by re-rendering the UI.
 
 ### Derived state
 
@@ -228,7 +210,7 @@ useEffect(() => {});
 
 This hook **cannot** recive an asyncronis fn
 
-⛔️
+❌
 
 ```js
 useEffect(async () => {}, []);
@@ -259,4 +241,117 @@ useEffect(() => {
 
 > 👉 Manipulate the state that had been pass as a prop from one component to another.
 
-... 🛠️ building
+### Custom hooks
+
+Those are created when we want to split some logic outside to the component, to can reuse some functionality.  
+To declare we have to write the `use` keyword before the alias.
+
+- Store in a different file
+- Catch the returning values using destructuring on the main component
+
+> ⚠️ Use the regular hooks as `useState` but returning just the value, avoid to return the setter function
+
+```js
+export const useMyHook = () => {
+  const [isFollowing, setIsFollowing] = useState(false);
+
+  return { isFollowing };
+};
+```
+
+❌
+
+```js
+return {
+  isFollowing,
+  setIsFollowing,
+};
+```
+
+### `useRef`
+
+Allows you to create a mutable reference that persists throughout the life cycle of a component and is very useful for any value that you want to mutate such as an identifier, a DOM element, a counter... and that once it changes **does not re-render the component**.
+
+> 🌐 Permite crear una referencia mutable que persiste en todo el ciclo de vida de un componente y es muy útil para cualquier valor que se quiera mutar, como un identificador, un elemento del DOM, un contador y que una vez que cambia **no vuelve a renderizar el componente**
+
+### Save a DOM element reference (uncontrolled way)
+
+Instead of using the `.querySelector()` we have to declare the obj reference. Inside the parentesis we pass the _initial value_
+
+```js
+const inputSome = useRef();
+```
+
+Creating the reference
+
+```js
+return <input ref={inputSome} />;
+```
+
+Now to access the properties inside is neccessary to access the `.current` property (_native of React_)
+
+```js
+const value = inputSome.current.value;
+```
+
+> ⚠️ Sometimes this hooks becomes so useful that we can get into the trap of using in every input element
+
+Instead of abuse of the useRef we can use a native way to control form data in JavaScript...
+
+### `window.FormData()`
+
+Set a name to the inputs inside the form and handle the `onSubmit` event
+
+```html
+<input name="salsa" />
+```
+
+```js
+const onSubmit = function (e) {
+  e.preventDefault();
+
+  const fields = new window.FormData(e.target);
+  const salsa = fields.get("salsa");
+};
+```
+
+To chatch the values of all the inputs in an object `{}` we can use
+
+```js
+const fields = Object.fromEntries(new window.FormData(e.target));
+```
+
+### Controlled elements
+
+Those are elements that now React can control, to achieve this behavior it may follow the next rules:
+
+1. Create a pience of state and change the value of the element to that existing state
+
+```jsx
+const [idUser, setIdUser] = useState(false)
+
+<input value={idUser}>
+```
+
+2. Handle an event to the element and triggers a state change
+
+```html
+<input value={idUser} onChange={(e) => setIdUser(e.target.value)} />
+```
+
+Or even in the function there can be validations that are easier than in not controlled way
+
+```js
+const onChange = (event) => {
+  const query = event.target.value;
+  if (query.startsWith(" ")) return;
+
+  setIdUser(query); // async if is not setted before (event.target.value)
+};
+```
+
+> ⚠️ The issue with this way can be if is a large app, each time value change, the component is going to be re-render 'cause the state changed
+
+---
+
+### 🛠️ learning...

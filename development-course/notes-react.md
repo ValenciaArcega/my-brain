@@ -352,6 +352,50 @@ const onChange = (event) => {
 
 > ⚠️ The issue with this way can be if is a large app, each time value change, the component is going to be re-render 'cause the state changed
 
----
 
+### Save the state to catch the previous value
+```js
+const [search, setSearch] = useState(false)
+
+const previousSearch = useRef(search)
+
+// ... then in logic
+if (search === previousSearch.current) return
+```
+
+### `useMemo`
+Is a React Hook that lets cache the result of a calculation between re-renders
+> ⚠️ Just use this hook when the re-render is a really **expensive** data load
+### Example
+
+```js
+const customHook = function {
+  const name = "Some"
+
+  function calcFunction() {
+    // ... some really huge calc
+  }
+
+  return { name, calcFunction }
+}
+```
+Avoid re-load the function each time
+```js
+import { useMemo } from "react"
+
+const customHook = function {
+  const name = "Some"
+
+  const calcFunction = useMemo(() => {
+    return // ... some really huge calc
+  }, [name])  
+
+  return { name, calcFunction }
+}
+```
+
+
+
+
+---
 ### 🛠️ learning...

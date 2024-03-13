@@ -17,3 +17,11 @@ for short
   }
 }
 ```
+
+
+# Conditional viewport
+```css
+@media (max-width: 730px) {
+  /* mobile version */
+}
+```

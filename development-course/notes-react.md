@@ -352,20 +352,23 @@ const onChange = (event) => {
 
 > ⚠️ The issue with this way can be if is a large app, each time value change, the component is going to be re-render 'cause the state changed
 
-
 ### Save the state to catch the previous value
-```js
-const [search, setSearch] = useState(false)
 
-const previousSearch = useRef(search)
+```js
+const [search, setSearch] = useState(false);
+
+const previousSearch = useRef(search);
 
 // ... then in logic
-if (search === previousSearch.current) return
+if (search === previousSearch.current) return;
 ```
 
 ### `useMemo`
+
 Is a React Hook that lets cache the result of a calculation between re-renders
+
 > ⚠️ Just use this hook when the re-render is a really **expensive** data load
+
 ### Example
 
 ```js
@@ -379,7 +382,9 @@ const customHook = function {
   return { name, calcFunction }
 }
 ```
+
 Avoid re-load the function each time
+
 ```js
 import { useMemo } from "react"
 
@@ -388,14 +393,81 @@ const customHook = function {
 
   const calcFunction = useMemo(() => {
     return // ... some really huge calc
-  }, [name])  
+  }, [name])
 
   return { name, calcFunction }
 }
 ```
 
+## Context API
 
+An state that can live in multiple components, lives in the main scope of the app so the rest of components can access to it.
 
+Can return
+
+- Provider
+- Objects
+
+Then we can use the `createContext` from react
+
+```shell
+└── context
+     └── authContext.js
+```
+
+```js
+import { createContext } from "react";
+
+export const authContext = createContext();
+
+export function AuthProvider({ children }) {
+  const user = {
+    login: true,
+  };
+
+  return (
+    <authContext.Provider value={{ user }}>{children}</authContext.Provider>
+  );
+}
+```
+
+Then to achieve that all components get access (or we can make our own selection of components that can access)
+
+```js
+import { AuthProvider } from "./context/authContext";
+
+function App() {
+  return <AuthProvider>{/* Routes or components*/}</AuthProvider>;
+}
+```
+
+Now to use the context in a particular component...
+
+### `useContext`
+
+```js
+import { authContext } from "./context/authContext";
+import { useContext } from "react";
+
+export function MyComponent() {
+  const obj = useContext(authContext);
+
+  console.log(obj); // user: { login: true}
+}
+```
+
+To optimize this way we can create a **customHook**.  
+✅
+
+```js
+export function useAtuth() {
+  const context = useContext(authContext);
+  return context;
+}
+```
+
+Then is just import the _customHook_ on each component to access the data
 
 ---
+
 ### 🛠️ learning...

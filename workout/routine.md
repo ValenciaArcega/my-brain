@@ -3,12 +3,12 @@
 > 🍗 Quads and calves
 
 - Hack squat or Smith
-- Calves stand-up
-- Adductor machine
+- Calves
 
   <br />
 
-- Bulgarian splits or Reverse lunge
+- Bulgarian splits
+- Adductor machine
 - Quads extension
 
 # Tuesday
@@ -24,22 +24,21 @@
 - Dips
 - Pole - Front raises
 - Pole - Lateral raises
-- Double pole extensions or _pole rope extensions_
+- Pole rope extensions
 
 # Wednesday
 
-> 🐫 Lats and long head bicep
+> 🐫 Lats and short head bicep
 
-- T row
-- Dumbell row
-- Spider curls or _curl Scott_
-- Pulldown (_close grip_)
+- Pullover
+- Pole row
 
   <br />
 
-- Bicep curl inclined
-- Pull over
-- ⁠21s
+- Spider curls
+- Dumbell row
+- Spider supine bar
+- Machine row
 
 # Thursday
 
@@ -58,13 +57,26 @@
 
 > 🍒 **Upper** chest, tricep **long head**, **rear** deltoid
 
-- Push press machine
-- French press
+- Dumbbell bench press inclined
+- Cup
 - Machine shoulder fly
 
   <br />
 
-- Dumbbell bench press inclined
-- Pole doble extension
+- Push press machine
+- Pole tricep extension
 - Pole faces
 - Pole - Lateral raises
+
+# Saturday
+
+> 🐫 Wide back and long head bicep
+
+- T row
+- Bicep curl inclined
+- Push up
+
+  <br />
+
+- Pulldown open grip
+- Bicep curl machine

@@ -2,6 +2,25 @@
 
 > ⚛️ : It is a popular, declarative, state driven, component based, JavaScript library to build UI's
 
+## Components
+
+Components are reusable UI pieces. Each component can handle its own state and properties.
+
+<br/>
+
+**Size really matters**  
+A _huge_ component can...
+
+- Too many responsabilities
+- Might need to many props
+- Hard to reuse
+- Complex code, hard to understand
+
+A _small_ component can...
+
+- Finish the app with 100s of mini-components
+-
+
 ## JSX Rules
 
 👉 JSX works essentially like HTML, but we can "scape" to JS usign `{}` for text or attribute
@@ -415,6 +434,8 @@ Then we can use the `createContext` from react
      └── authContext.js
 ```
 
+We can store static data (`{}`, `var`, `[]`) is not neccessary to write ~~states~~ (_eventually will be needed, but it **does not means is mandatory**_)
+
 ```js
 import { createContext } from "react";
 
@@ -466,7 +487,9 @@ export function useAtuth() {
 }
 ```
 
-Then is just import the _customHook_ on each component to access the data
+Then is just import the _customHook_ on each component to access the data.
+
+## Global state
 
 ---
 

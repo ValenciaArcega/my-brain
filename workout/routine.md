@@ -2,8 +2,9 @@
 
 > 🍗 Quads and calves
 
-- Hack squat or Smith
+- Smith
 - Calves
+- Hipthrust
 
   <br />
 
@@ -15,42 +16,43 @@
 
 > 🍒 **Lower** chest, tricep **lateral head**, **front** and **medial** deltoid
 
+- Shoulder press
 - Dumbbell bench press
 - Pole bar extension
-- Shoulder press
 
   <br />
 
 - Dips
-- Pole - Front raises
-- Pole - Lateral raises
+- Front raises
+- Lateral raises
 - Pole rope extensions
 
 # Wednesday
 
 > 🐫 Lats and short head bicep
 
-- Pullover
-- Pole row
+- Spider curls
+- Dumbell row
+- Bicep curl declined
 
   <br />
 
-- Spider curls
-- Dumbell row
-- Spider supine bar
+- Pullover
 - Machine row
+- Hammer curl and forearms
 
 # Thursday
 
 > 🍗 Femoral and glutes
 
 - Femoral curl seated
-- Calves seated
-- RDL's or Deadlift
+- Calves
+- Hipthrust
 
   <br />
 
-- Hipthrust
+- RDL's
+- Abductors
 - Bulgarian splits
 
 # Friday

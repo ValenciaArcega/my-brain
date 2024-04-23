@@ -10,10 +10,8 @@ The closest `structure` to what can be found is as follows:
 │     └── guidelines
 │
 ├── development-course
-│     ├── notes-css.css
 │     ├── notes-css.md
 │     ├── notes-html.md
-│     ├── notes-javascript.js
 │     ├── notes-javascript.md
 │     ├── notes-typescript.md
 │     └── notes-react.md
@@ -23,13 +21,6 @@ The closest `structure` to what can be found is as follows:
 │     ├── nodejs
 │     ├── react-native-expo
 │     ├── react-vite
-│     └── etc...
-│
-├── tooling
-│     ├── csharp
-│     ├── css
-│     ├── js
-│     ├── react
 │     └── etc...
 │
 └── etc...

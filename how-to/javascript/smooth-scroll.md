@@ -1,8 +1,17 @@
+If the CSS way does not work
+
+```css
+html {
+  scroll-behavior: smooth;
+}
+```
+
+```js
+The with JS we can achieve that behavior
 const a = document.querySelector('.some')
 const someSection = document.querySelector('#some')
 
 a.addEventListener('click', (e) => {
-	// e means the element itself
 	e.target.getBoundingClientRect() // x, y, height...
 
 	const b = someSection.getBoundingClientRect()
@@ -16,13 +25,14 @@ a.addEventListener('click', (e) => {
 	document.documentElement.clientHeight
 	document.documentElement.clientWidth
 
-	// scrolling considering the viewport top (absolute no relative current value)
+	// scrolling considering the viewport top (absolute, no relative current value)
 	window.scrollTo({
 		left: b.left + window.pageXOffset,
 		top: b.top + window.pageYOffset,
 		behavior: 'smooth',
 	})
 
-	// modern way (❗ modern browsers)
+	// modern way (modern browsers)
 	some.scrollIntoView({ behavior: 'smooth' })
 })
+```

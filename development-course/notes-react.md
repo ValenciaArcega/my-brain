@@ -268,7 +268,7 @@ To declare we have to write the `use` keyword before the alias.
 - Store in a different file
 - Catch the returning values using destructuring on the main component
 
-> ⚠️ Use the regular hooks as `useState` but returning just the value, avoid to return the setter function
+> ⚠️ Use the regular hooks as `useState` but returning just the value, AVOID to return the setter function
 
 ```js
 export const useMyHook = () => {
@@ -286,6 +286,8 @@ return {
   setIsFollowing,
 };
 ```
+
+> Each time when you got a `useEffect()` make the question if the logic cab be in a custom hook.
 
 ### `useRef`
 

@@ -63,24 +63,41 @@ Inside the components we can add different usefull props like
 
 ```xml
 <DataTable
-	selectableRows
-	selectableRowsSingle
-	highlightOnHover
-	pointerOnHover
+	className={css.grid}
+	columns={columns}
+	conditionalRowStyles={conditionalRowStyles}
+	customStyles={customStyles}
+	data={tecnologias}
+	expandableRowsComponent={NestedComponent}	
+	expandableIcon={IconEyes}
 	expandableRows
-	pagination
 	fixedHeader
 	fixedHeaderScrollHeight="20rem"
+	highlightOnHover
+	pagination
+	onRowClicked={grid_onRowClicked}
 	paginationComponentOptions={{
 		rowsPerPageText: 'Registros por página',
 		rangeSeparatorText: 'de',
 		selectAllRowsItem: true,
 		selectAllRowsItemText: 'Mostrar todos los registros',
 	}}
-	conditionalRowStyles={conditionalRowStyles}
-	expandableRowsComponent={NestedComponent}
-	onRowClicked={grid_onRowClicked}
+	pointerOnHover
+	selectableRows
+	selectableRowsSingle
 />
+```
+Some styles on the component 
+```css
+.grid {
+	min-height: 39rem;
+	max-width: 90%;
+	/* border-radius: 8px 8px 0 0 !important; */
+	border-radius: 8px !important;
+	border: 2px solid rgba(232, 229, 229, 0.977);
+	background: rebeccapurple !important;
+	scrollbar-width: none;
+}
 ```
 
 ## Nesting components or Detail row

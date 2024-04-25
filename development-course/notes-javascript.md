@@ -19,7 +19,9 @@ console.log(`%c` + "", `font-size: 1.65rem; color: #e599f7;`);
 Or we can also use alerts (those are **async**, _more on that later_)
 
 ```js
-alert("Hello world");
+alert(
+  "If you want to look good in front of thousands, you have to work harder than thousands in front of no one."
+);
 ```
 
 ### Comments

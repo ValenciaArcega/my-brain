@@ -36,7 +36,7 @@ need more, use `<React.Fragment>` (or the short `< >`)
 
 ## Virtual DOM 🌳
 
-> En lugar de re-renderizar todo el arbol de elementos en cada cambio, solo actualiza aquellos que han sufrido un cambio de estado, lo que hace es hacerle una **foto al DOM** la primera vez y cada vez, hace las modificaciones mínimas de manera casi quirurjica, la única regla es la propagación de cambios a los componentes hijos.
+> 🇲🇽 En lugar de re-renderizar todo el arbol de elementos en cada cambio, solo actualiza aquellos que han sufrido un cambio de estado, lo que hace es hacerle una **foto al DOM** la primera vez y cada vez, hace las modificaciones mínimas de manera casi quirurjica, la única regla es la propagación de cambios a los componentes hijos.
 
 ## Props
 

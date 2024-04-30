@@ -83,7 +83,7 @@ The code editor will be open to write the commit message with break lines.
 Now to pack all togheter and commit without passing for the ~~staging area~~
 
 ```bash
-git commit -a
+git commit -a -m ""
 ```
 
 ### Commits: restore, checkout and more

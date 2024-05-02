@@ -290,6 +290,34 @@ git config --global alias.gs "status"
 git config --global alias.nameShortcut "log --oneline --all --graph --pretty=format:'%C(auto)%h%d %s %C(black)%C(bold)%cr'"
 ```
 
+# Git remote
+
+When we add our local repo to a cloud remote service first we should to use
+
+```bash
+git remote add anyName https://...
+```
+
+Then change the name of the current local branch to `main`
+
+```bash
+git branch -M main
+```
+
+And finally to set up the configuration of each push and simplify on just `git push` we should to set the upstream
+
+```bash
+git push -u origin main
+```
+
+> `-u` extends for **--set-upstream**
+
+No we can `see our remote repos` with
+
+```bash
+git remote --verbose
+```
+
 ---
 
 ## `learning more... 🧠`

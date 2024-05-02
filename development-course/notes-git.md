@@ -140,6 +140,19 @@ Now we can show the commits ID to identify and see differences
 git log --oneline
 ```
 
+To list all commits from all branches
+
+```bash
+git log --oneline --all
+```
+
+To list the history like a `graph`
+
+```bash
+git log --oneline --all --graph
+```
+
+<br>
 Once we have ID's (_like a reference_)
 
 ```bash
@@ -219,7 +232,7 @@ git switch -c <branch>
 
 ### Delete a branch
 
-     ⚠️ Before delete pointer in a different branch
+> ⚠️ Before delete pointer in a different branch
 
 ```bash
 git branch -d <branch>
@@ -235,10 +248,48 @@ git branch -m <branch> new-name
 
 > -m extends for _modify_
 
-     ⚠️ To change the name in the current branch without switching...
+> ⚠️ To change the name in the current branch without switching...
 
 ```bash
 git branch -m new-name
 ```
 
 > -m extends for _move_
+
+## Git ignore
+
+On `.gitignore`
+
+Ignore **every** png file
+
+```bash
+ *.png
+```
+
+Ignore every file that ends with ).txt
+
+```bash
+ *).txt
+```
+
+Avoid ignore an specific file or directory
+
+```bash
+ !photos/some.png
+```
+
+## Git alias
+
+To create some git shortcuts we can use alias
+
+```bash
+git config --global alias.gs "status"
+```
+
+```bash
+git config --global alias.nameShortcut "log --oneline --all --graph --pretty=format:'%C(auto)%h%d %s %C(black)%C(bold)%cr'"
+```
+
+---
+
+## `learning more... 🧠`

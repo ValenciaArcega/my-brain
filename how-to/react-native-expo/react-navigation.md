@@ -1,7 +1,15 @@
 # React Navigation 🌍
 
+The naviagtion itself
+
 ```bash
 npm install @react-navigation/native
+```
+
+To use
+
+```js
+import { NavigationContainer } from "@react-navigation/native";
 ```
 
 **Install the expo dependencies**
@@ -10,42 +18,43 @@ npm install @react-navigation/native
 npx expo install react-native-screens react-native-safe-area-context
 ```
 
-Install the stack library (can be more than one) (https://reactnavigation.org/docs/native-stack-navigator/#options)
+Install the stack library.
+To check more stack options  
+👉 https://reactnavigation.org/docs/native-stack-navigator/#options
 
 ```bash
 npm install @react-navigation/native-stack
 ```
 
----
-
-<br>
-
-## How to use? 🤔
-
-    App.jsx
+To use
 
 ```js
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-const Stack = createNativeStackNavigator();
-
-<NavigationContainer>
-  <Stack.Navigator initialRouteName="Login">
-    <Stack.Screen
-      name="Login"
-      component={Login}
-      options={{ headerShown: false, animation: "fade" }}
-    ></Stack.Screen>
-  </Stack.Navigator>
-</NavigationContainer>;
 ```
 
 ---
 
-Now to move between screens
+## How to use? 🤔
 
-    Any.jsx
+Now on `App.jsx`
+
+```js
+const stack = createNativeStackNavigator();
+
+<NavigationContainer>
+  <stack.Navigator initialRouteName="Login">
+    <stack.Screen
+      name="Login"
+      component={Login}
+      options={{ headerShown: false, animation: "fade" }}
+    />
+  </stack.Navigator>
+</NavigationContainer>;
+```
+
+**Now to move between screens**
+
+On `Any.jsx`
 
 ```js
 import { useNavigation } from "@react-navigation/native";
@@ -58,12 +67,12 @@ const goLogin = () => n.replace("Login");
 
 ### Move data between components
 
-Any.jsx (inside a loop or whatever)
+`Any.jsx` (inside a loop or whatever)
 
 ```js
 <TouchableOpacity
   onPress={function () {
-    navigation.navigate("ComponentChild", item.titulo);
+    n.navigate("ComponentChild", item.titulo);
   }}
 />
 ```

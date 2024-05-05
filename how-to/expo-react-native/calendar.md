@@ -1,4 +1,4 @@
-# Calendar
+# Expo Calendar
 
 https://github.com/stephy/CalendarPicker
 

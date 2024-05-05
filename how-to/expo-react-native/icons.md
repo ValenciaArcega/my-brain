@@ -16,3 +16,12 @@ Icon.loadFont();
 
 <Icon name="rocket" size={24} color="#fff" />;
 ```
+
+# Expo vector icons
+
+```bash
+npm i @expo/vector-icons
+```
+
+Catalog of icons
+https://icons.expo.fyi/Index

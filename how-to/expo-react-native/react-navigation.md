@@ -1,6 +1,6 @@
 # React Navigation 🌍
 
-The naviagtion itself
+The navigation itself
 
 ```bash
 npm install @react-navigation/native

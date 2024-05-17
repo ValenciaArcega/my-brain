@@ -318,6 +318,20 @@ No we can `see our remote repos` with
 git remote --verbose
 ```
 
+## Stage changes to allow pulls
+
+```bash
+git stash save "01-my-code"
+```
+
+```bash
+git stash list
+```
+
+```bash
+git stash apply name_stash
+```
+
 ---
 
 ## `learning more... 🧠`

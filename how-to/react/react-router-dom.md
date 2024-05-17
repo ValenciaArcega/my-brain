@@ -12,7 +12,7 @@ Esta es la idea general detrás de las SPA (Single Page Application), permitir q
 npm install react-router-dom -E
 ```
 
-> 👉 main.jsx
+`main.jsx`
 
 ```js
 import { BrowserRouter } from "react-router-dom";
@@ -24,7 +24,7 @@ render(
 );
 ```
 
-> 👉 App.jsx
+`App.jsx`
 
 ```js
 import { Route, Routes } from "react-router-dom";
@@ -34,8 +34,8 @@ return (
     <NavBarDesktop />
     <NavBarMobile />
     <Routes>
-      <Route path="/sigfea//*" element={<Dashboard />}></Route>
-      <Route path="/sigfea/feed" element={<Feed />}></Route>
+      <Route path="///*" element={<Dashboard />}></Route>
+      <Route path="/some/feed" element={<Feed />}></Route>
     </Routes>
   </main>
 );

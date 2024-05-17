@@ -145,8 +145,6 @@ or
 <p onMouseEntered={() => doSomething()}></p>
 ```
 
-## ![ReviewingProps](image.png)
-
 ---
 
 ## Hooks
@@ -496,5 +494,13 @@ Then is just import the _customHook_ on each component to access the data.
 ## Global state
 
 ---
+
+### How do ⚛️ works behind the scenes
+
+What triggers the initial render is something called _React element tree_ 🌳 or a popular term that developers used to call... `Virtual DOM`
+
+> Is not the official name by the documentation but is easier to understand for developers
+
+When a state change on A component the entire _Virtual DOM_ re-renders whole A child componets to play it safe with down propagation
 
 ### 🛠️ learning...

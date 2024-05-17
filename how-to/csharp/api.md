@@ -49,11 +49,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.MapFallbackToFile("/index.html");
-
 app.Run();
 
 ```
@@ -250,9 +247,9 @@ try {
 	string sError = string.Empty;
 
 	if (oDal.SeleccionaUsuario(ref sError, idUser)) {
-		return Ok(new { sError = sError, flag = true });
+		return Ok(new { sError, flag = true });
 	} else {
-		return NotFound(new { sError = sError, flag = false });
+		return NotFound(new { sError, flag = false });
 	}
 } catch {
 	return Ok(new { sError = "Las credenciales son incorrectas", flag = false });
@@ -289,9 +286,7 @@ async function postJSON(apiEndpoint, value) {
       body: JSON.stringify(value),
     });
     return await request.json();
-  } catch (e) {
-    console.log(e);
-  }
+  } catch (e) {}
 }
 ```
 

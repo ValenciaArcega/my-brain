@@ -1,6 +1,10 @@
 # Match media
 
-Install the dependencies and import 'em at `hooks/useMatchMedia.ts`
+A reference of the use: https://blog.expo.dev/media-queries-with-react-native-for-ios-android-and-web-e0b73ed5777b
+
+---
+
+**Install the dependencies** and import 'em at `hooks/useMatchMedia.ts`
 
 ```js
 import "@expo/match-media";

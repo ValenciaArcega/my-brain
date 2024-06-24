@@ -290,6 +290,12 @@ git config --global alias.gs "status"
 git config --global alias.nameShortcut "log --oneline --all --graph --pretty=format:'%C(auto)%h%d %s %C(black)%C(bold)%cr'"
 ```
 
+To push more than one remote
+```bash
+git config --global alias.valencia '!git push github dev-valenciaarcega:main && git push azure dev-valenciaarcega:develop'
+```
+
+
 # Git remote
 
 When we add our local repo to a cloud remote service first we should to use

@@ -325,7 +325,15 @@ git remote --verbose
 ```
 
 ## Stage changes to allow pulls
+```bash
+git stash push -m "message"
+```
+And to apply
+```bash
+git stash pop stash@{id}
+```
 
+Old way
 ```bash
 git stash save "01-my-code"
 ```

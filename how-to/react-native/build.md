@@ -102,7 +102,33 @@ El file is something similar to:
 sdk.dir=/Users/yourusername/Library/Android/sdk
 ```
 
-To avoid network errors on Android we must configure the file `Manifest.xml` adding permissions on `android/app/src/main/AndroidManifest.xml`
+To avoid network errors on Android we must configure the file `app.json` adding permission
+```json
+"permissions": [
+        "android.permission.ACCESS_NETWORK_STATE",
+],
+```
+And install `expo-build-properties` to set
+```json
+{
+  "expo":
+  {
+  ...
+    "plugins": [
+      ["expo-build-properties", {
+        "android": {
+          "usesCleartextTraffic": true
+        },
+        "ios": {
+          ...
+        }
+      }]
+  }
+}
+```
+
+
+`❌ @deprecated` To avoid network errors on Android we must configure the file `Manifest.xml` adding permissions on `android/app/src/main/AndroidManifest.xml`
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>

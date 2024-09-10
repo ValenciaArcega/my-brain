@@ -101,11 +101,25 @@ El file is something similar to:
 # header note.
 sdk.dir=/Users/yourusername/Library/Android/sdk
 ```
+## Networking issues
+To avoid network errors on iOS we must configure
+```json
+"ios": {
+  "infoPlist": {
+	"NSAppTransportSecurity": {
+	  "NSAllowsArbitraryLoads": true
+	},
+	"NSLocationAlwaysAndWhenInUseUsageDescription": "Permitir a MyApp acceder a tu ubicación en todo momento y cuando estés en uso",
+	"NSLocationAlwaysUsageDescription": "Permitir a MyApp acceder a tu ubicación en todo momento",
+	"NSLocationWhenInUseUsageDescription": "Permitir a MyApp acceder a tu ubicación mientras estás usando la aplicación"
+	}
+},
+```
 
 To avoid network errors on Android we must configure the file `app.json` adding permission
 ```json
 "permissions": [
-        "android.permission.ACCESS_NETWORK_STATE",
+	"android.permission.ACCESS_NETWORK_STATE",
 ],
 ```
 And install `expo-build-properties` to set
@@ -118,9 +132,6 @@ And install `expo-build-properties` to set
       ["expo-build-properties", {
         "android": {
           "usesCleartextTraffic": true
-        },
-        "ios": {
-          ...
         }
       }]
   }

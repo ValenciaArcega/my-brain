@@ -4,13 +4,13 @@
 node -v || node --version
 ```
 
-### NPM Updates
+### npm updates
 
 ```
 npm install -g npm@latest
 ```
 
-## Update Node with NVM
+## Update Node with nvm
 
 Show all current node versions
 

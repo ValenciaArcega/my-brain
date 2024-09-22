@@ -81,6 +81,6 @@ Other component
 
 ```js
 ComponentChild({ route }) {
-  const data = route.params
+  const props = route.params
 }
 ```

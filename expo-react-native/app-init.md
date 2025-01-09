@@ -8,14 +8,14 @@ https://reactnative.dev/docs/the-new-architecture/landing-page#fast-javascriptna
 Create the app with Expo (_empty template with TypeScript_ in this case)
 
 ```bash
-npx create-expo-app@latest my-app-name --template blank-typescript
+npx create-expo-app@latest --template blank-typescript
 ```
 Instantly we must to configure **TypeScript** in the `tsconfig.json` file to allow an absolute route with the `@` symbol.
 ```json
 {
-  "extends": "expo/tsconfig.base",
+  ...
   "compilerOptions": {
-    "strict": false,
+    "strict": true,
     "paths": {
       "@/*": [
         "./*"
@@ -26,7 +26,7 @@ Instantly we must to configure **TypeScript** in the `tsconfig.json` file to all
 ```
 Now we can use the root folder _app_ as static route inside the code like 
 ```js
-import Some from "@/app/hooks"
+import useSome from "@/app/hooks"
 ```
 or resources
 ```js
@@ -151,56 +151,7 @@ Configure onto the `app.json` for iOS and Android.
     }
   ]
 ],
-```
-## Styling
-Now lets configure **Nativewind** (and amazing tool to style our Native Code with **Tailwind**). It is as easy as just install:
-```bash
-npm install nativewind
-npm install --save-dev tailwindcss@3.3.2
-```
-> ⚠️ Caution. Always check the docs to install the new long term versions. https://www.nativewind.dev/quick-starts/expo
-
-### TypeScript support
-Create the file `nativewind-env.d.ts` and set
-```ts
-/// <reference types="nativewind/types" />
-```
-Once it is installed and configured run:
-```bash
-npx tailwindcss init
-```
-This will create the `tailwind.config.js`. Inside the file we can set or scheme colors, the dark mode property and many more props.
-```json
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: "selector",
-  content: ["./App.{js,jsx,ts,tsx}", "./app/**/*.{js,jsx,ts,tsx}"],
-  theme: {
-    extend: {
-      colors: {
-        p100: "#edf2ff",
-        p200: "#dbe4ff",
-        ...,
-      },
-    },
-  },
-  plugins: [],
-}
-```
-Finally just modify the `babel.config.js` file and add the dependency, also it's a good moment to install `react-native-reanimated` which also needs to add the plugin.
-```js
-module.exports = function (api) {
-  api.cache(true)
-  return {
-    presets: ['babel-preset-expo'],
-    plugins: [
-      "react-native-reanimated/plugin",
-      "nativewind/babel",
-    ],
-  }
-}
-```
-> The steps may change with the new versions of each dependecy, thats why it's important to always follows the latest version of our utils.  
+``` 
 
 ### To update the dependencies of the new _SDK 51_
 ```bash
@@ -208,31 +159,6 @@ npx expo install --fix
 ```
 > More info on: https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/#upgrade-dependencies
 
-### Git config
-`.gitignore` comes always by default. But there are some routes "missing" (_optional_)
-```git
-%ProgramData%
-.vs/
-.vscode/
-obj
-bin
 
-android/
-ios/
-eas.json
-```
-
-Now we can make a **prebuild** and start coding.
-
-To launch the server run:
----
-```bash
-npx expo start
-```
-Or if we change the script onto the `package.json`
-```bash
-npm run dev
-```
-
-Everything is ready to rocket up!  
+Now we can make a **prebuild** and start coding. Everything is ready to rocket up!   
 `by: @ValenciaArcega` 🚀

@@ -6,20 +6,20 @@ To print our first message we must to import the file for input/output stream an
 #include <iostream>
 
 int main () {
-	/**
-	 * Since iostream its imported we can use
-	 * std (standard lib) and their tools like
-	 * cout (character output) to print smh to the
-	 * console.
-	 */
-	std::cout << "This is rocket from C++" << std::endl;
-	std::cout << "Today's 1st January" << '\n';
-
-	return 0;
+  /**
+   * Since iostream its imported we can use
+   * std (standard lib) and their tools like
+   * cout (character output) to print smh to the
+   * console.
+   */
+  std::cout << "This is rocket from C++" << std::endl;
+  std::cout << "Today's 1st January" << '\n';
+  
+  return 0;
 }
 ```
 
-To improve performance insted of use `std::endl` we can just user `\n`.
+To improve performance insted of use `std::endl` we can just use: `\n`.
 
 ## Variables & Basic data types
 
@@ -58,25 +58,33 @@ Entities can have same names as long as they are in different namespaces.
 
 `::` **Scope resolution operator** to access entities from other namespaces.
 
-> ⚠️ Avoid as possible ~~`using namespace std`~~ ;
+> ⚠️ Avoid as possible ~~`using namespace std`~~
 
 ```cpp
 using std::cout;
 using std::string;
 
 namespace first {
-	const string a = "Maysan";
+  const string a = "Maysan";
 }
 
 namespace second {
-	const string a = "Al";
+  const string a = "Al";
 }
 
 int main () {
-	using namespace first;
-	const string a = "Valencia";
-
-	cout << a;
-	return 0;
+  using namespace first;
+  const string a = "Valencia";
+  
+  cout << a;
+  return 0;
 }
+```
+## User flow control
+`<<` Insertion operator  
+`>>` Extraction operator  
+
+Once the user type an input string with spaces must to use the `getline()` function.
+```cpp
+std::getline(std::cin >> std::ws, someVar)
 ```

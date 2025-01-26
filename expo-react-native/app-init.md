@@ -11,7 +11,7 @@ Empty template with TypeScript.
 ```bash
 npx create-expo-app@latest --template blank-typescript
 ```
-Instantly we must to configure **TypeScript** in the `tsconfig.json` file to allow an absolute route with the `@` symbol.
+Instantly configure the `tsconfig.json` file to allow access a route with the `@` symbol.
 ```json
 {
   "compilerOptions": {
@@ -84,7 +84,7 @@ https://www.nativewind.dev/getting-started/react-native
 ## Expo extra and util deps
 
 ```bash
-
+# app.json config
 expo-asset
 expo-build-properties
 expo-camera
@@ -105,6 +105,9 @@ expo-haptics
 expo-clipboard
 expo-linear-gradient
 
+react-native-reanimated
+react-native-gesture-handler
+
 @react-navigation/native
 react-native-screens
 react-native-safe-area-context
@@ -114,17 +117,14 @@ react-native-safe-area-context
 @react-navigation/drawer
 
 @react-native-async-storage/async-storage
+
+## Component on other projects
 @react-native-segmented-control/segmented-control
-
-@types/react
-
-react-native-reanimated
-react-native-gesture-handler
-
 react-native-toast-message
 react-native-date-picker
 react-native-element-dropdown
 react-native-walkthrough-tooltip
+
 react-native-maps
 react-native-qrcode-svg
 react-native-gifted-charts

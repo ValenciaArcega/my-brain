@@ -84,42 +84,42 @@ https://www.nativewind.dev/getting-started/react-native
 ## Expo extra and util deps
 
 ```bash
-expo-system-ui
-@expo/vector-icons
-expo-haptics
 
-## QR sharing
 expo-asset
-
-expo-blur
-expo-linear-gradient
-expo-clipboard
-
 expo-build-properties
-expo-constants
 expo-camera
 expo-image-picker
+expo-local-authentication
+
+expo-system-ui
+@expo/vector-icons
+expo-blur
 expo-document-picker
 expo-file-system
 expo-location
 expo-sharing
 expo-splash-screen
-expo-local-authentication
 expo-task-manager
+expo-constants
+expo-haptics
+expo-clipboard
+expo-linear-gradient
+
+@react-navigation/native
+react-native-screens
+react-native-safe-area-context
+
+@react-navigation/native-stack
+@react-navigation/bottom-tabs
+@react-navigation/drawer
 
 @react-native-async-storage/async-storage
 @react-native-segmented-control/segmented-control
-@react-navigation/bottom-tabs
-@react-navigation/drawer
-@react-navigation/native
-@react-navigation/native-stack
 
 @types/react
 
 react-native-reanimated
 react-native-gesture-handler
-react-native-safe-area-context
-react-native-screens
 
 react-native-toast-message
 react-native-date-picker

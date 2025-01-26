@@ -77,10 +77,9 @@ module.exports = function (api) {
 ```
 ## Appearance
 
-Set on `app.json` the property `"userInterfaceStyle": "automatic"`.
-```bash
+Set on `app.json` the property `"userInterfaceStyle": "automatic"`.  
+
 https://www.nativewind.dev/getting-started/react-native
-```
 
 ## Expo extra and util deps
 
@@ -131,6 +130,48 @@ react-native-qrcode-svg
 react-native-gifted-charts
 react-native-svg
 react-native-star-rating-widget
+```
+
+## Root App Stack for a good workflow
+```js
+import Toast from 'react-native-toast-message'
+import { toastConfig } from "@/app/components/Toast"
+import { StatusBar } from "expo-status-bar"
+import { LogBox } from "react-native"
+import { NavigationContainer } from "@react-navigation/native"
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { SplashScreenHandler } from "@/app/core/SplashScreenHandler"
+import { UserContext } from "@context/UserContext"
+import { Router } from "@routes/Router"
+import { useAppearance } from "@hooks/useAppareance"
+
+LogBox.ignoreAllLogs()
+const originalWarn = console.warn
+console.warn = message => {
+   if (message.includes("React Components must start with an uppercase letter")) {
+      return
+   }
+   originalWarn(message)
+}
+
+export default function App() {
+   const { isDarkMode } = useAppearance()
+
+   return <NavigationContainer>
+      <UserContext>
+         <SplashScreenHandler>
+            <GestureHandlerRootView>
+               <StatusBar
+                  style={!isDarkMode ? "dark" : "light"}
+                  backgroundColor="transparent" />
+               <Router />
+            </GestureHandlerRootView>
+            <Toast
+              config={toastConfig} />
+         </SplashScreenHandler>
+      </UserContext>
+   </NavigationContainer>
+}
 ```
 
 ### Useful commands

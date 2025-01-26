@@ -1,11 +1,12 @@
-# The ultimate app guide - Expo ^51
+# The ultimate app guide Expo 52
 
-First to start it is important to understand how React Native components really works behind the scenes.
-So this is a real quick summary of how the new architecture works. 👇
+Before to start it is important to understand how React Native components really works behind the scenes.
+So this is a real quick summary of how the **new architecture** works.
 
 https://reactnative.dev/docs/the-new-architecture/landing-page#fast-javascriptnative-interfacing
 
-Create the app with Expo (_empty template with TypeScript_ in this case)
+## Create the app
+Empty template with TypeScript.
 
 ```bash
 npx create-expo-app@latest --template blank-typescript
@@ -13,152 +14,101 @@ npx create-expo-app@latest --template blank-typescript
 Instantly we must to configure **TypeScript** in the `tsconfig.json` file to allow an absolute route with the `@` symbol.
 ```json
 {
-  ...
   "compilerOptions": {
     "strict": true,
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "./*"
-      ]
+      ],
+      "@utils/*": [
+        "app/utils/*"
+      ],
     }
   }
 }
 ```
-Now we can use the root folder _app_ as static route inside the code like 
+Now it's just simply as:
 ```js
-import useSome from "@/app/hooks"
+import useSome from "@hooks/useSome"
 ```
 or resources
 ```js
 source={require("@/assets/some.png")}
 ```
-
-Then it is time to configure the main config file in our project. Which is `app.json`
-> This properties will be compiled onto native code for `AndroidManifest.xml` and `Info.plist`
-
-`app.json`
-Splashscreen configuration
-```json
-"splash": {
-    "image": "./assets/app-splashscreen.png",
-    "resizeMode": "cover",
-    "backgroundColor": "#ffffff"
-},
-```
-Basic **iOS** configuration for permissions, apps access and more.
-```json
-"ios": {
-    "bundleIdentifier": "com.company.appName",
-    "supportsTablet": true,
-    "infoPlist": {
-      "UIBackgroundModes": [
-        "location",
-        "fetch"
-      ],
-      "LSApplicationQueriesSchemes": [
-        "tel",
-        "telprompt"
-      ],
-      "NSAppTransportSecurity": {
-        "NSAllowsArbitraryLoads": true
-      },
-      "NSLocationAlwaysAndWhenInUseUsageDescription": "Permitir a ... acceder a tu ubicación en todo momento y cuando estés en uso",
-      "NSLocationAlwaysUsageDescription": "Permitir a ... acceder a tu ubicación en todo momento",
-      "NSLocationWhenInUseUsageDescription": "Permitir a ... acceder a tu ubicación mientras estás usando la aplicación"
-    }
-},
-```
-
-To allow prebuild and set `"userInterfaceStyle": "automatic"` on Android we must to install first:
+# Environment variables
+Once project folding arch its set. Lets create a `.env` and a `env.d.ts` file and ignore 'em at `.gitignore`.
 ```bash
-npx expo install expo-system-ui
+react-native-dotenv
 ```
-
-Then the basic **Android** configuration for permissions and more.
+Inside `env.d.ts` we must to determinate the same name of our `.env` variables.
+```ts
+declare module '@env' {
+  export const ENDPOINT_TEAMS: string;
+}
+```
+Add onto `tsconfig.json`: 
 ```json
-"android": {
-    "package": "com.company.appName",
-    "softwareKeyboardLayoutMode": "pan",
-    "userInterfaceStyle": "automatic",
-    "adaptiveIcon": {
-      "foregroundImage": "./assets/app-icon-adaptive.png",
-      "backgroundColor": "#ffffff"
-    },
-    "permissions": [
-      "android.permission.ACCESS_NETWORK_STATE",
-      "android.permission.ACCESS_BACKGROUND_LOCATION",
-      "android.permission.ACCESS_FINE_LOCATION",
-      "android.permission.ACCESS_COARSE_LOCATION",
-      "android.permission.FOREGROUND_SERVICE",
-      "android.permission.RECORD_AUDIO",
-      "android.permission.CAMERA"
+"compilerOptions": {
+  "types": [
+    "./env.d.ts"
+  ],
+}
+```
+Now just remains to add the plugin at the file `babel.config.js` (if exists for nativewind, if not just create it).
+```js
+const plugin = require("tailwindcss")
+
+module.exports = function (api) {
+  api.cache(true)
+  return {
+    presets: [
+      ["babel-preset-expo", { jsxImportSource: "nativewind" }],
+       "nativewind/babel",
+    ],
+    plugins: [
+      ["module:react-native-dotenv", {
+        "moduleName": "@env",
+        "path": ".env",
+      }]
     ]
-},
+  }
+}
+```
+## Appearance
+
+Set on `app.json` the property `"userInterfaceStyle": "automatic"`.
+
+To allow prebuild and set on Android, It is necessary to install:
+```bash
+expo-system-ui
 ```
 
-### Google config (Maps & Firebase files)
-```json
-"ios": {
-    "googleServicesFile": "./GoogleService-Info.plist",
-    "config": {
-      "googleMapsApiKey": "YOUR_API_KEY"
-    },
-},
-"android": {
-    "googleServicesFile": "google-services.json",
-    "config": {
-      "googleMaps": {
-        "apiKey": "YOUR_API_KEY"
-      }
-    },
-},
-```
+## Expo extra and util deps
+
 ## Expo properties
-Now it is paramount to configure the external properties to access open backend servers or even, allow backends as a service like Firebase works.
+
 ```bash
-npx expo install expo-build-properties
+expo-build-properties
 ```
 
-Configure onto the `app.json` for iOS and Android.  
-> This configuration will grow as the project needs it so... if a plugin it's unnecessary. Just skip it.
-```json
-"plugins": [
-  [
-    "expo-build-properties",
-    {
-      "android": {
-        "usesCleartextTraffic": true
-      },
-      "ios": {
-        "useFrameworks": "static"
-      }
-    }
-  ],
-  "@react-native-firebase/app",
-  "expo-font",
-  [
-    "expo-image-picker",
-    {
-      "photosPermission": "... accesa a tus fotos para poder dar de alta documentos"
-    }
-  ],
-  [
-    "expo-camera",
-    {
-      "cameraPermission": "Permitir a ... acceder a la cámara",
-      "microphonePermission": "Permitir a ... acceder al micrófono",
-      "recordAudioAndroid": false
-    }
-  ]
-],
-``` 
-
-### To update the dependencies of the new _SDK 51_
+### Useful commands
 ```bash
+# Update dependencies
+# More info on: https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/#upgrade-dependencies
 npx expo install --fix
+
+# Create the .apk for debug
+./gradlew assembleDebug
+# Create the .apk for release
+./gradlew assembleRelease
 ```
-> More info on: https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/#upgrade-dependencies
 
 
-Now we can make a **prebuild** and start coding. Everything is ready to rocket up!   
+Now we can make a **prebuild** and start coding. 
+```bash
+npx expo prebuild --clean
+```
+
+Everything is ready to rocket up!   
 `by: @ValenciaArcega` 🚀

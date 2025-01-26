@@ -78,31 +78,73 @@ module.exports = function (api) {
 ## Appearance
 
 Set on `app.json` the property `"userInterfaceStyle": "automatic"`.
-
-To allow prebuild and set on Android, It is necessary to install:
 ```bash
-expo-system-ui
+https://www.nativewind.dev/getting-started/react-native
 ```
 
 ## Expo extra and util deps
 
-## Expo properties
-
 ```bash
+expo-system-ui
+@expo/vector-icons
+expo-haptics
+
+## QR sharing
+expo-asset
+
+expo-blur
+expo-linear-gradient
+expo-clipboard
+
 expo-build-properties
+expo-constants
+expo-camera
+expo-image-picker
+expo-document-picker
+expo-file-system
+expo-location
+expo-sharing
+expo-splash-screen
+expo-local-authentication
+expo-task-manager
+
+@react-native-async-storage/async-storage
+@react-native-segmented-control/segmented-control
+@react-navigation/bottom-tabs
+@react-navigation/drawer
+@react-navigation/native
+@react-navigation/native-stack
+
+@types/react
+
+react-native-reanimated
+react-native-gesture-handler
+react-native-safe-area-context
+react-native-screens
+
+react-native-toast-message
+react-native-date-picker
+react-native-element-dropdown
+react-native-walkthrough-tooltip
+react-native-maps
+react-native-qrcode-svg
+react-native-gifted-charts
+react-native-svg
+react-native-star-rating-widget
 ```
 
 ### Useful commands
 ```bash
 # Update dependencies
-# More info on: https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/#upgrade-dependencies
 npx expo install --fix
 
 # Create the .apk for debug
 ./gradlew assembleDebug
+
 # Create the .apk for release
 ./gradlew assembleRelease
 ```
+> More info on: https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/#upgrade-dependencies
 
 
 Now we can make a **prebuild** and start coding. 

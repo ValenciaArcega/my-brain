@@ -22,7 +22,7 @@ Instantly configure the `tsconfig.json` file to allow access a route with the `@
         "./*"
       ],
       "@utils/*": [
-        "app/utils/*"
+        "src/utils/*"
       ],
     }
   }
@@ -98,7 +98,6 @@ expo-document-picker
 expo-file-system
 expo-location
 expo-sharing
-expo-splash-screen
 expo-task-manager
 expo-constants
 expo-haptics
@@ -117,9 +116,9 @@ react-native-safe-area-context
 @react-navigation/drawer
 
 @react-native-async-storage/async-storage
+@react-native-segmented-control/segmented-control
 
 ## Component on other projects
-@react-native-segmented-control/segmented-control
 react-native-toast-message
 react-native-date-picker
 react-native-element-dropdown

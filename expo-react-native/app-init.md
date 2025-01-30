@@ -92,6 +92,7 @@ expo-image-picker
 expo-local-authentication
 
 expo-system-ui
+expo-splash-screen
 @expo/vector-icons
 expo-blur
 expo-document-picker
@@ -117,48 +118,43 @@ react-native-safe-area-context
 
 @react-native-async-storage/async-storage
 @react-native-segmented-control/segmented-control
-
-## Component on other projects
-react-native-toast-message
-react-native-date-picker
-react-native-element-dropdown
 react-native-walkthrough-tooltip
-
 react-native-maps
 react-native-qrcode-svg
 react-native-gifted-charts
 react-native-svg
 react-native-star-rating-widget
+
+## Component on other projects
+react-native-toast-message
+react-native-date-picker
+react-native-element-dropdown
 ```
 
 ## Root App Stack for a good workflow
 ```js
 import Toast from 'react-native-toast-message'
 import { toastConfig } from "@/app/components/Toast"
-import { StatusBar } from "expo-status-bar"
-import { LogBox } from "react-native"
 import { NavigationContainer } from "@react-navigation/native"
-import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import { SplashScreenHandler } from "@/app/core/SplashScreenHandler"
-import { UserContext } from "@context/UserContext"
-import { Router } from "@routes/Router"
-import { useAppearance } from "@hooks/useAppareance"
 
 LogBox.ignoreAllLogs()
-const originalWarn = console.warn
-console.warn = message => {
-   if (message.includes("React Components must start with an uppercase letter")) {
-      return
-   }
-   originalWarn(message)
-}
+
+cssInterop(Ionicons, {
+  className: {
+    target: 'style',
+    nativeStyleToProp: {
+      // 'size': 'size',
+      'color': 'color'
+    } as Record<string, string>
+  }
+});
 
 export default function App() {
    const { isDarkMode } = useAppearance()
 
-   return <NavigationContainer>
-      <UserContext>
-         <SplashScreenHandler>
+   return  <SplashScreenHandler>
+      <NavigationContainer>
+        <UserContext>
             <GestureHandlerRootView>
                <StatusBar
                   style={!isDarkMode ? "dark" : "light"}
@@ -167,9 +163,9 @@ export default function App() {
             </GestureHandlerRootView>
             <Toast
               config={toastConfig} />
-         </SplashScreenHandler>
       </UserContext>
    </NavigationContainer>
+ </SplashScreenHandler>
 }
 ```
 

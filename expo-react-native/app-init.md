@@ -1,4 +1,4 @@
-# The ultimate app guide Expo 52
+# The ultimate app guide - Expo 52^
 
 Before to start it is important to understand how React Native components really works behind the scenes.
 So this is a real quick summary of how the **new architecture** works.
@@ -12,6 +12,7 @@ Empty template with TypeScript.
 npx create-expo-app@latest --template blank-typescript
 ```
 Instantly configure the `tsconfig.json` file to allow access a route with the `@` symbol.
+Based on experience the following structure its the prefered.
 ```json
 {
   "compilerOptions": {
@@ -21,8 +22,32 @@ Instantly configure the `tsconfig.json` file to allow access a route with the `@
       "@/*": [
         "./*"
       ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@constants/*": [
+        "src/constants/*"
+      ],
+      "@contexts/*": [
+        "src/contexts/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@interfaces/*": [
+        "src/interfaces/*"
+      ],
+      "@routes/*": [
+        "src/routes/*"
+      ],
       "@utils/*": [
         "src/utils/*"
+      ],
+      "@core/*": [
+        "src/views/core/*"
+      ],
+      "@public/*": [
+        "src/views/public/*"
       ],
     }
   }
@@ -44,7 +69,7 @@ react-native-dotenv
 Inside `env.d.ts` we must to determinate the same name of our `.env` variables.
 ```ts
 declare module '@env' {
-  export const ENDPOINT_TEAMS: string;
+  export const API_URL: string;
 }
 ```
 Add onto `tsconfig.json`: 

@@ -286,6 +286,11 @@ To create some git shortcuts we can use alias
 git config --global alias.gs "status"
 ```
 
+To review the current alias
+```
+git config --list | grep alias
+```
+
 ```bash
 git config --global alias.nameShortcut "log --oneline --all --graph --pretty=format:'%C(auto)%h%d %s %C(black)%C(bold)%cr'"
 ```

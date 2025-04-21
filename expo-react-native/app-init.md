@@ -141,13 +141,13 @@ react-native-safe-area-context
 @react-navigation/bottom-tabs
 @react-navigation/drawer
 
-@react-native-async-storage/async-storage
 @react-native-segmented-control/segmented-control
+react-native-mmkv
+react-native-svg
 react-native-walkthrough-tooltip
 react-native-maps
 react-native-qrcode-svg
 react-native-gifted-charts
-react-native-svg
 react-native-star-rating-widget
 
 ## Component on other projects

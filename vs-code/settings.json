@@ -18,7 +18,7 @@
   "debug.terminal.clearBeforeReusing": true,
   "diffEditor.wordWrap": "on",
   "editor.autoClosingBrackets": "always",
-  "editor.autoClosingQuotes": "always",
+  "editor.autoClosingQuotes": "never",
   "editor.bracketPairColorization.enabled": false,
   "editor.cursorBlinking": "expand",
   "editor.cursorSmoothCaretAnimation": "on",
@@ -40,7 +40,7 @@
   "editor.quickSuggestions": {
     "comments": "off",
     "other": "off",
-    "strings": "off"
+    "strings": "on"
   },
   "editor.renderControlCharacters": false,
   "editor.renderLineHighlight": "all",
@@ -78,8 +78,8 @@
   },
   "html.format.wrapAttributes": "force",
   "javascript.format.semicolons": "insert",
-  "javascript.preferences.quoteStyle": "double",
-  "typescript.preferences.quoteStyle": "double",
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "json.sortOnSave.enable": true,
   "security.workspace.trust.untrustedFiles": "open",
@@ -88,7 +88,6 @@
   "terminal.integrated.defaultProfile.windows": "PowerShell",
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   "terminal.integrated.fontFamily": "Cascadia Code Regular",
-  "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontWeight": "normal",
   "terminal.integrated.tabs.defaultColor": "terminal.ansiBlue",
   "terminal.integrated.tabs.defaultIcon": "remote-explorer",
@@ -110,7 +109,8 @@
   "workbench.list.defaultFindMode": "filter",
   "workbench.colorCustomizations": {
     "editor.lineHighlightBackground": "#00000000",
-    "editor.lineHighlightBorder": "#00000000"
+    "editor.lineHighlightBorder": "#00000000",
+    "editor.background": "#292A2F",
   },
   "editor.tokenColorCustomizations": {
     "textMateRules": [
@@ -148,7 +148,7 @@
           "storage.type",
         ],
         "settings": {
-          // "fontStyle": "underline",
+          // "fontStyle": "italic",
           // "foreground": "#99e9f2"
           "foreground": "#aff0ff"
         }
@@ -167,7 +167,18 @@
         ],
         "settings": {
           "fontStyle": "underline",
-          "foreground": "#faa2c1"
+          /// "foreground": "#faa2c1"
+          "foreground": "#EE81B0"
+        },
+      },
+      // new keyword
+      {
+        "scope": [
+          "keyword.operator.new.tsx",
+        ],
+        "settings": {
+          /// "foreground": "#faa2c1"
+          "foreground": "#d2f6ef"
         },
       },
       {
@@ -193,7 +204,9 @@
           "entity.name.function",
         ],
         "settings": {
-          "foreground": "#fff9db"
+          /// "foreground": "#fff9db"
+          // "foreground": "#AB83E4"
+          "foreground": "#CAAAF9"
         },
       },
       {
@@ -201,7 +214,16 @@
           "string",
         ],
         "settings": {
-          "foreground": "#ffc9c9"
+          // "foreground": "#DD6D5F"
+          "foreground": "#f3f4e3"
+        },
+      },
+      {
+        "scope": [
+          "meta.brace.round.tsx",
+        ],
+        "settings": {
+          "foreground": "#8a8b8a"
         },
       },
       {
@@ -227,7 +249,8 @@
           "comment",
         ],
         "settings": {
-          "foreground": "#797979"
+          /// "foreground": "#797979"
+          "foreground": "#A2C581"
         },
       },
       {
@@ -257,9 +280,14 @@
   },
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
-    "package.json": "package-lock.json, .gitignore, vite.config.js, tsconfig.json, .hintrc, yarn.lock, pnpm-lock.yaml, bun.lockb, .eslintrc.cjs, nuget.config, app.json, babel.config.js, astro.config.mjs, env.d.ts, .env, nativewind-env.d.ts, tailwind.config.js, eas.json, metro.config.js, .env.local, README.md"
+    "package.json": "package-lock.json, .gitignore, vite.config.js, tsconfig.json, .hintrc, yarn.lock, pnpm-lock.yaml, bun.lockb, .eslintrc.cjs, nuget.config, app.json, babel.config.js, astro.config.mjs, env.d.ts, .env, nativewind-env.d.ts, tailwind.config.js, eas.json, metro.config.js, .env.local, README.md, global.css, app.config.ts"
   },
   "editor.insertSpaces": false,
+  "editor.hover.enabled": false,
+  "editor.parameterHints.enabled": false,
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "html.suggest.html5": false,
+  "editor.snippetSuggestions": "none",
   "editor.defaultFormatter": "vscode.typescript-language-features",
   "git.confirmSync": false,
   "workbench.tree.enableStickyScroll": false,
@@ -276,7 +304,6 @@
   "scm.showIncomingChanges": "always",
   "scm.showOutgoingChanges": "always",
   "git.openRepositoryInParentFolders": "never",
-  "editor.snippetSuggestions": "none",
   "emmet.excludeLanguages": [
     "markdown",
     "javascript"
@@ -308,7 +335,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.minimap.showSlider": "always",
-  "workbench.statusBar.visible": false,
   "javascript.experimental.updateImportsOnPaste": true,
   "editor.stickyScroll.enabled": false,
   "supermaven.enableFixWithSupermaven": false,
@@ -319,19 +345,38 @@
   "workbench.editor.editorActionsLocation": "titleBar",
   "typescript.format.insertSpaceAfterSemicolonInForStatements": false,
   "typescript.format.semicolons": "insert",
-  "mssql.connections": [],
   "mssql.enableRichExperiences": true,
   "editor.minimap.renderCharacters": false,
   "debug.onTaskErrors": "abort",
   "editor.fontSize": 16,
-  "workbench.activityBar.location": "top",
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
-  "workbench.editor.showTabs": "none",
   "workbench.sideBar.location": "right",
   "github.copilot.editor.enableAutoCompletions": false,
   "github.copilot.chat.fixTestFailure.enabled": false,
   "supermaven.otherWarning": false,
   "diffEditor.ignoreTrimWhitespace": false,
+  "chat.commandCenter.enabled": false,
+  "mssql.objectExplorer.groupBySchema": true,
+  "workbench.iconTheme": "symbols",
+  "editor.guides.indentation": false,
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "terminal.integrated.mouseWheelZoom": true,
+  "workbench.activityBar.location": "top",
+  "mssql.connectionGroups": [
+    {
+      "name": "ROOT",
+      "id": "B3D6E3D5-5168-4AB7-B0CD-6DA6CCF3FD23"
+    }
+  ],
+  "terminal.integrated.fontSize": 13,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "window.zoomLevel": 2,
 }

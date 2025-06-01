@@ -1,11 +1,9 @@
-# The ultimate app guide - Expo 53^
+# The ultimate guide to create app - Expo 53^
 
 Before to start it is important to understand how React Native components really works behind the scenes.
 So this is a real quick summary of how the **new architecture** works.
 
 https://reactnative.dev/docs/the-new-architecture/landing-page#fast-javascriptnative-interfacing
-
-## Create the app
 
 Empty template with TypeScript.
 
@@ -105,64 +103,46 @@ module.exports = function (api) {
 
 Set on `app.json` the property `"userInterfaceStyle": "automatic"`.
 
-https://www.nativewind.dev/getting-started/react-native
-
-## Expo extra and util deps
+## Dependencies
 
 ```bash
-# app.json config
+expo-haptics expo-blur @expo/vector-icons expo-symbols expo-system-ui expo-splash-screen expo-constants expo-task-manager expo-sharing expo-location expo-document-picker expo-file-system @react-navigation/native react-native-screens react-native-safe-area-context @react-navigation/native-stack @react-navigation/bottom-tabs @react-navigation/drawer react-native-mmkv @react-native-async-storage/async-storage react-native-svg
+```
+
+```bash
+# To config on app.json
 expo-asset
 expo-build-properties
 expo-camera
 expo-image-picker
 expo-local-authentication
 
-expo-system-ui
-expo-splash-screen
-@expo/vector-icons
-expo-blur
-expo-document-picker
-expo-file-system
-expo-location
-expo-sharing
-expo-task-manager
-expo-constants
-expo-haptics
-expo-clipboard
+react-native-reanimated react-native-gesture-handler
+
+## Components or functions on other projects
 expo-linear-gradient
+expo-clipboard
+react-native-toast-message
+react-native-date-picker
 
-react-native-reanimated
-react-native-gesture-handler
-
-@react-navigation/native
-react-native-screens
-react-native-safe-area-context
-
-@react-navigation/native-stack
-@react-navigation/bottom-tabs
-@react-navigation/drawer
-
+## Other util dependencies
 @react-native-segmented-control/segmented-control
-react-native-mmkv
-react-native-svg
 react-native-walkthrough-tooltip
 react-native-maps
 react-native-qrcode-svg
 react-native-gifted-charts
 react-native-star-rating-widget
-
-## Component on other projects
-react-native-toast-message
-react-native-date-picker
-react-native-element-dropdown
 ```
 
 ## Root App Stack for a good workflow
 
 ```js
+import "./global.css";
 import Toast from 'react-native-toast-message'
 import { toastConfig } from "@/app/components/Toast"
 import { NavigationContainer } from "@react-navigation/native"
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { cssInterop } from 'nativewind';
 
 LogBox.ignoreAllLogs()
 
@@ -170,7 +150,6 @@ cssInterop(Ionicons, {
   className: {
     target: 'style',
     nativeStyleToProp: {
-      // 'size': 'size',
       'color': 'color'
     } as Record<string, string>
   }
@@ -189,32 +168,29 @@ export default function App() {
                <Router />
             </GestureHandlerRootView>
             <Toast
-              config={toastConfig} />
+              config={toastVariants} />
       </UserContext>
    </NavigationContainer>
  </SplashScreenHandler>
 }
 ```
 
-### Useful commands
-
+### Update project or dependecies
+More info on: https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/#upgrade-dependenciesexpo-linear-gradient
 ```bash
-# Update dependencies
 npx expo install --fix
-
-# Create the .apk for debug
-./gradlew assembleDebug
-
-# Create the .apk for release
-./gradlew assembleRelease
 ```
 
-> More info on: https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/#upgrade-dependencies
-
-Now we can make a **prebuild** and start coding.
+Now we can make a **prebuild version**.
 
 ```bash
-npx expo prebuild --clean
+npx expo prebuild
+```
+
+And launch
+
+```bash
+npx expo run:(ios|android)
 ```
 
 Everything is ready to rocket up!  

@@ -106,16 +106,17 @@ Set on `app.json` the property `"userInterfaceStyle": "automatic"`.
 ## Dependencies
 
 ```bash
-expo-haptics expo-blur @expo/vector-icons expo-symbols expo-system-ui expo-splash-screen expo-constants expo-task-manager expo-sharing expo-location expo-document-picker expo-file-system @react-navigation/native react-native-screens react-native-safe-area-context @react-navigation/native-stack @react-navigation/bottom-tabs @react-navigation/drawer react-native-mmkv @react-native-async-storage/async-storage react-native-svg
+expo-haptics expo-blur @expo/vector-icons expo-symbols expo-system-ui expo-asset expo-splash-screen expo-constants expo-task-manager expo-sharing expo-location expo-document-picker expo-file-system @react-navigation/native react-native-screens react-native-safe-area-context @react-navigation/native-stack @react-navigation/bottom-tabs @react-navigation/drawer react-native-mmkv @react-native-async-storage/async-storage react-native-svg
 ```
 
 ```bash
 # To config on app.json
-expo-asset
 expo-build-properties
 expo-camera
 expo-image-picker
 expo-local-authentication
+expo-secure-store
+expo-localization
 
 react-native-reanimated react-native-gesture-handler
 
@@ -139,7 +140,7 @@ react-native-star-rating-widget
 ```js
 import "./global.css";
 import Toast from 'react-native-toast-message'
-import { toastConfig } from "@/app/components/Toast"
+import { toastVariants } from "@components/Toast"
 import { NavigationContainer } from "@react-navigation/native"
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { cssInterop } from 'nativewind';

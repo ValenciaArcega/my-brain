@@ -283,23 +283,22 @@ Avoid ignore an specific file or directory
 To create some git shortcuts we can use alias
 
 ```bash
-git config --global alias.gs "status"
+git config --global alias.st "status"
+git config --global alias.rocket-app '!git push github dev:main && git push azure dev:dev'
 ```
 
-To review the current alias
+To review an alias
+```
+git config --get alias.rocket
+```
+To list all the available alias.
 ```
 git config --list | grep alias
 ```
 
 ```bash
-git config --global alias.nameShortcut "log --oneline --all --graph --pretty=format:'%C(auto)%h%d %s %C(black)%C(bold)%cr'"
+git config --global alias.pretty-graph "log --oneline --all --graph --pretty=format:'%C(auto)%h%d %s %C(black)%C(bold)%cr'"
 ```
-
-To push more than one remote
-```bash
-git config --global alias.valencia '!git push github dev-valenciaarcega:main && git push azure dev-valenciaarcega:develop'
-```
-
 
 # Git remote
 

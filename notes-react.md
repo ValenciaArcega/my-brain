@@ -21,7 +21,6 @@ A _huge_ component can...
 A _small_ component can...
 
 - Finish the app with 100s of mini-components
--
 
 ## JSX Rules
 

@@ -1,4 +1,4 @@
-# <center> Guide to become a good UX/UI Designer
+# <center> Guidelines to a good UX/UI Design
 Important subjects to know
 1.	Guidelines
 2.	Accessibility

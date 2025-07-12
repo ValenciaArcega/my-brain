@@ -106,11 +106,33 @@ Set on `app.json` the property `"userInterfaceStyle": "automatic"`.
 ## Dependencies
 
 ```bash
-expo-haptics expo-blur @expo/vector-icons expo-symbols expo-system-ui expo-asset expo-splash-screen expo-constants expo-task-manager expo-sharing expo-location expo-document-picker expo-file-system @react-navigation/native react-native-screens react-native-safe-area-context @react-navigation/native-stack @react-navigation/bottom-tabs @react-navigation/drawer react-native-mmkv @react-native-async-storage/async-storage react-native-svg
-```
+@expo/vector-icons 
+expo-haptics 
+expo-blur 
+expo-symbols
+expo-system-ui
+expo-splash-screen
+expo-asset
+expo-sharing
+expo-constants
+expo-task-manager
+expo-location
+expo-document-picker
+expo-file-system
 
-```bash
-# To config on app.json
+@react-native-async-storage/async-storage 
+react-native-mmkv 
+react-native-gesture-handler
+react-native-svg
+# Navigation
+@react-navigation/native 
+react-native-screens 
+react-native-safe-area-context 
+@react-navigation/native-stack 
+@react-navigation/bottom-tabs 
+@react-navigation/drawer 
+
+# Config on app.json
 expo-build-properties
 expo-camera
 expo-image-picker
@@ -118,16 +140,15 @@ expo-local-authentication
 expo-secure-store
 expo-localization
 
-react-native-reanimated react-native-gesture-handler
+react-native-reanimated 
 
-## Components or functions on other projects
+# Components or functions on other projects
 expo-linear-gradient
 expo-clipboard
 react-native-toast-message
 react-native-date-picker
 
-## Other util dependencies
-@react-native-segmented-control/segmented-control
+# Other util dependencies
 react-native-walkthrough-tooltip
 react-native-maps
 react-native-qrcode-svg
@@ -176,23 +197,25 @@ export default function App() {
 }
 ```
 
-### Update project or dependecies
-More info on: https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/#upgrade-dependenciesexpo-linear-gradient
-```bash
-npx expo install --fix
-```
-
-Now we can make a **prebuild version**.
+Now to make a **prebuild version**.
+- Use the flag `--platform ios` to build on specific CNG
+- Use the flag `--clean` to clean the current native folders.
 
 ```bash
 npx expo prebuild
 ```
 
-And launch
+Create the `local.properties` file on the *android* folder on macOS
+```bash
+sdk.dir=/Users/user-name/Library/Android/sdk
+```
+
+To build and launch on 🤖 & 🍎
 
 ```bash
 npx expo run:(ios|android)
 ```
 
-Everything is ready to rocket up!  
-`by: @ValenciaArcega` 🚀
+Everything is ready to **rocket up**!  
+
+🚀 `@ValenciaArcega`

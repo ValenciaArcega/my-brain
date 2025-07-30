@@ -106,10 +106,10 @@ Set on `app.json` the property `"userInterfaceStyle": "automatic"`.
 ## Dependencies
 
 ```bash
-@expo/vector-icons 
+expo-dev-client
 expo-haptics 
-expo-blur 
-expo-symbols
+expo-blur
+expo-linear-gradient
 expo-system-ui
 expo-splash-screen
 expo-asset
@@ -119,6 +119,8 @@ expo-task-manager
 expo-location
 expo-document-picker
 expo-file-system
+expo-symbols
+@expo/vector-icons
 
 @react-native-async-storage/async-storage 
 react-native-mmkv 
@@ -143,7 +145,6 @@ expo-localization
 react-native-reanimated 
 
 # Components or functions on other projects
-expo-linear-gradient
 expo-clipboard
 react-native-toast-message
 react-native-date-picker

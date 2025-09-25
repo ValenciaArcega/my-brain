@@ -1,4 +1,4 @@
-# The ultimate guide to create app - Expo 53^
+# The ultimate guide to create App Expo 54^
 
 Before to start it is important to understand how React Native components really works behind the scenes.
 So this is a real quick summary of how the **new architecture** works.
@@ -25,8 +25,8 @@ Based on experience the following structure its the prefered.
       "@constants/*": ["src/constants/*"],
       "@contexts/*": ["src/contexts/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@interfaces/*": ["src/interfaces/*"],
       "@routes/*": ["src/routes/*"],
+      "@types/*": ["src/types/*"],
       "@utils/*": ["src/utils/*"],
       "@views/*": ["src/views/*"],
       "@core/*": ["src/views/core/*"],
@@ -111,63 +111,55 @@ expo-haptics
 expo-blur
 expo-linear-gradient
 expo-system-ui
-expo-splash-screen
 expo-asset
 expo-sharing
 expo-constants
 expo-task-manager
-expo-location
-expo-document-picker
-expo-file-system
 expo-symbols
 @expo/vector-icons
 
 @react-native-async-storage/async-storage 
 react-native-mmkv 
 react-native-gesture-handler
-react-native-svg
+react-native-reanimated
+react-native-worklets
+
 # Navigation
 @react-navigation/native 
-react-native-screens 
+@react-navigation/native-stack
 react-native-safe-area-context 
-@react-navigation/native-stack 
-@react-navigation/bottom-tabs 
-@react-navigation/drawer 
+react-native-screens 
+react-native-bottom-tabs
+@bottom-tabs/react-navigation
 
 # Config on app.json
+react-native-bottom-tabs
+react-native-edge-to-edge
 expo-build-properties
 expo-camera
 expo-image-picker
 expo-local-authentication
 expo-secure-store
 expo-localization
+expo-splash-screen
 
-react-native-reanimated 
 
 # Components or functions on other projects
 expo-clipboard
-react-native-toast-message
 react-native-date-picker
 
-# Other util dependencies
-react-native-walkthrough-tooltip
-react-native-maps
+# Other Util Dependencies
 react-native-qrcode-svg
 react-native-gifted-charts
-react-native-star-rating-widget
 ```
 
 ## Root App Stack for a good workflow
 
 ```js
 import "./global.css";
-import Toast from 'react-native-toast-message'
-import { toastVariants } from "@components/Toast"
+import { cssInterop } from 'nativewind';
 import { NavigationContainer } from "@react-navigation/native"
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { cssInterop } from 'nativewind';
-
-LogBox.ignoreAllLogs()
 
 cssInterop(Ionicons, {
   className: {
@@ -179,22 +171,15 @@ cssInterop(Ionicons, {
 });
 
 export default function App() {
-   const { isDarkMode } = useAppearance()
-
-   return  <SplashScreenHandler>
+   return <SplashScreenWrapper>
       <NavigationContainer>
         <UserContext>
             <GestureHandlerRootView>
-               <StatusBar
-                  style={!isDarkMode ? "dark" : "light"}
-                  backgroundColor="transparent" />
                <Router />
             </GestureHandlerRootView>
-            <Toast
-              config={toastVariants} />
       </UserContext>
    </NavigationContainer>
- </SplashScreenHandler>
+ </SplashScreenWrapper>
 }
 ```
 

@@ -18,14 +18,14 @@
   "debug.terminal.clearBeforeReusing": true,
   "diffEditor.wordWrap": "on",
   "editor.autoClosingBrackets": "always",
-  "editor.autoClosingQuotes": "never",
+  "editor.autoClosingQuotes": "always",
   "editor.bracketPairColorization.enabled": false,
   "editor.cursorBlinking": "expand",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.folding": true,
   "editor.fontLigatures": true,
   "editor.fontFamily": "Cascadia Code Light",
-  "editor.fontWeight": "bold",
+  "editor.fontWeight": "normal",
   "editor.guides.bracketPairsHorizontal": false,
   "editor.hover.sticky": false,
   "editor.stickyScroll.scrollWithEditor": false,
@@ -53,13 +53,13 @@
     "javascript": "javascriptreact"
   },
   // "errorLens.scrollbarHackEnabled": true,
-  "errorLens.borderRadius": "12px",
+  "errorLens.borderRadius": "6px",
   "errorLens.fontFamily": "Cascadia Code",
-  "errorLens.fontSize": "10",
+  "errorLens.fontSize": "8",
   "errorLens.fontWeight": "bold",
-  "errorLens.margin": "1ch",
-  "errorLens.padding": "2px 1ch",
-  "errorLens.messageBackgroundMode": "message",
+  "errorLens.margin": "1px",
+  "errorLens.padding": "1px 8px",
+  "errorLens.messageBackgroundMode": "line",
   "errorLens.delayMode": "debounce",
   "errorLens.scrollbarHackEnabled": true,
   "errorLens.enabledDiagnosticLevels": [
@@ -77,9 +77,6 @@
     "**/.settings": true
   },
   "html.format.wrapAttributes": "force",
-  "javascript.format.semicolons": "insert",
-  "javascript.preferences.quoteStyle": "single",
-  "typescript.preferences.quoteStyle": "single",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "json.sortOnSave.enable": true,
   "security.workspace.trust.untrustedFiles": "open",
@@ -108,9 +105,9 @@
   "workbench.list.defaultFindMatchType": "contiguous",
   "workbench.list.defaultFindMode": "filter",
   "workbench.colorCustomizations": {
-    "editor.lineHighlightBackground": "#00000000",
-    "editor.lineHighlightBorder": "#00000000",
-    "editor.background": "#292A2F",
+    "editor.lineHighlightBackground": "#121414",
+    "editor.lineHighlightBorder": "#121414",
+    "editor.background": "#121414"
   },
   "editor.tokenColorCustomizations": {
     "textMateRules": [
@@ -148,7 +145,7 @@
           "storage.type",
         ],
         "settings": {
-          // "fontStyle": "italic",
+          "fontStyle": "italic",
           // "foreground": "#99e9f2"
           "foreground": "#aff0ff"
         }
@@ -186,7 +183,7 @@
           "keyword.control.conditional",
         ],
         "settings": {
-          "fontStyle": "underline",
+          "fontStyle": "",
           "foreground": "#ffec99"
         },
       },
@@ -204,8 +201,6 @@
           "entity.name.function",
         ],
         "settings": {
-          /// "foreground": "#fff9db"
-          // "foreground": "#AB83E4"
           "foreground": "#CAAAF9"
         },
       },
@@ -214,8 +209,7 @@
           "string",
         ],
         "settings": {
-          // "foreground": "#DD6D5F"
-          "foreground": "#f3f4e3"
+          "foreground": "#D16B69"
         },
       },
       {
@@ -232,7 +226,8 @@
         ],
         "settings": {
           "fontStyle": "underline",
-          "foreground": "#cec9ff"
+          // "foreground": "#cec9ff"
+          "foreground": "#ffbaf5"
         },
       },
       {
@@ -259,7 +254,8 @@
         ],
         "settings": {
           "fontStyle": "",
-          "foreground": "#adb5bd"
+          /// "foreground": "#adb5bd"
+          "foreground": "#d3f5fb"
         },
       },
       {
@@ -270,20 +266,29 @@
           "foreground": "#fff"
         },
       },
+      {
+        "scope": [
+          "keyword.operator.expression.of.tsx",
+        ],
+        "settings": {
+          "foreground": "#ffbaf5"
+        },
+      },
     ]
   },
   "git.autofetch": true,
   "git.enableSmartCommit": true,
+  "window.zoomLevel": 1,
   "vscode-edge-devtools.webhintInstallNotification": true,
   "[typescriptreact]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
-    "package.json": "package-lock.json, .gitignore, vite.config.js, tsconfig.json, .hintrc, yarn.lock, pnpm-lock.yaml, bun.lockb, .eslintrc.cjs, nuget.config, app.json, babel.config.js, astro.config.mjs, env.d.ts, .env, nativewind-env.d.ts, tailwind.config.js, eas.json, metro.config.js, .env.local, README.md, global.css, app.config.ts"
+    "package.json": "package-lock.json, .gitignore, vite.config.js, tsconfig.json, .hintrc, yarn.lock, pnpm-lock.yaml, bun.lockb, .eslintrc.cjs, nuget.config, app.json, babel.config.js, astro.config.mjs, env.d.ts, .env, nativewind-env.d.ts, tailwind.config.js, eas.json, metro.config.js, .env.local, README.md, global.css, app.config.ts, bun.lock, eslint.config.js"
   },
   "editor.insertSpaces": false,
-  "editor.hover.enabled": false,
+  "editor.hover.enabled": "off",
   "editor.parameterHints.enabled": false,
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "html.suggest.html5": false,
@@ -311,7 +316,7 @@
   "editor.guides.highlightActiveIndentation": false,
   "editor.guides.highlightActiveBracketPair": false,
   "supermaven.enable": {
-    "*": false
+    "*": true
   },
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
@@ -341,42 +346,59 @@
   "typescript.experimental.updateImportsOnPaste": true,
   "editor.hover.above": false,
   "typescript.preferences.includePackageJsonAutoImports": "off",
-  "editor.lineNumbers": "off",
   "workbench.editor.editorActionsLocation": "titleBar",
   "typescript.format.insertSpaceAfterSemicolonInForStatements": false,
   "typescript.format.semicolons": "insert",
   "mssql.enableRichExperiences": true,
   "editor.minimap.renderCharacters": false,
   "debug.onTaskErrors": "abort",
-  "editor.fontSize": 16,
+  "editor.fontSize": 14,
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
-  "workbench.sideBar.location": "right",
   "github.copilot.editor.enableAutoCompletions": false,
   "github.copilot.chat.fixTestFailure.enabled": false,
   "supermaven.otherWarning": false,
-  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.ignoreTrimWhitespace": true,
   "chat.commandCenter.enabled": false,
   "mssql.objectExplorer.groupBySchema": true,
-  "workbench.iconTheme": "symbols",
-  "editor.guides.indentation": false,
   "prettier.jsxSingleQuote": true,
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
   "prettier.singleQuote": true,
   "terminal.integrated.mouseWheelZoom": true,
-  "workbench.activityBar.location": "top",
   "mssql.connectionGroups": [
     {
       "name": "ROOT",
       "id": "B3D6E3D5-5168-4AB7-B0CD-6DA6CCF3FD23"
     }
   ],
-  "terminal.integrated.fontSize": 13,
   "github.copilot.enable": {
     "*": false,
     "plaintext": false,
     "markdown": false,
     "scminput": false
   },
-  "window.zoomLevel": 2,
+  "terminal.integrated.allowedLinkSchemes": [
+    "file",
+    "http",
+    "https",
+    "mailto",
+    "vscode",
+    "vscode-insiders",
+    "src/views/core/week/ExersisesWeightByWorkout.tsx"
+  ],
+  "terminal.integrated.stickyScroll.enabled": false,
+  "terminal.integrated.fontSize": 15,
+  "mssql.enableQueryHistoryCapture": false,
+  "window.restoreWindows": "preserve",
+  "terminal.integrated.suggest.enabled": true,
+  "workbench.sideBar.location": "right",
+  "terminal.integrated.tabs.enabled": false,
+  "workbench.iconTheme": "symbols",
+  "editor.cursorHeight": 100,
+  "editor.lineNumbers": "off",
+  "editor.minimap.enabled": false,
+  "workbench.statusBar.visible": false,
+  "javascript.format.semicolons": "insert",
 }

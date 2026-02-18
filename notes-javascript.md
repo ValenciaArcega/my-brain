@@ -34,7 +34,7 @@ alert(
  */
 ```
 
-## Variables and data types
+## Variables
 
 ```js
 let myFirstVariable;
@@ -42,7 +42,7 @@ let myFirstVariable;
 const myFirstConstant = "Hello world 🌎!";
 ```
 
-### Declare variables
+### Declaring Variables
 
 JavaScript has weak and dynamic typing so we dont have to specify the type, instead we use...
 
@@ -53,11 +53,11 @@ let a = 30;
 // let allows variable mutate
 a = "Change to a string";
 
-// const thisIsAnError; ❌
+const thisIsAnError; ❌
 const b = "Must be inizialized";
 ```
 
-### The 7 primitives data types
+### The 7 Primitives Data Types
 
 ```js
 // String
@@ -82,29 +82,19 @@ let keyUnique = Symbol("foo");
 let largerInteger = 2n;
 ```
 
-To know the type of a variable we have to use the `typeof` keywork.
-There are some wear 🐞 bugs in the language like:
-
-```js
-console.log(typeof null);
-// will return 'object'
-```
-
-### Type conversion (manually)
+### Type Conversion (manually)
 
 ```js
 const toNumber = Number(year) + 18;
-
 const toString = String(year);
-
 // rarely use
 const toBoolean = Boolean(year);
 ```
 
-### Type coercion (automatic)
+### Type Coercion (automatic)
 
 ```js
-const year = `1991`;
+const year = '1991';
 console.log(year + 18);
 // this just concatenate so...199118
 
@@ -120,7 +110,7 @@ const result = year - 10;
 console.log(result, result ** 3);
 ```
 
-Short operating
+Short Operating
 
 ```js
 let x = 5 + 10;
@@ -132,7 +122,7 @@ x *= 10; // x = x * 10
 x /= 10; // x = x / 10
 ```
 
-Add and substract
+Add and Substract
 
 ```js
 x++;
@@ -140,7 +130,7 @@ x++;
 x--;
 ```
 
-Concat strings
+Concat Strings
 
 ```js
 const myName = "Angel";
@@ -149,14 +139,7 @@ const mySurname = "Arcega";
 console.log(myName + " " + mySurname);
 ```
 
-## Working with strings
-
-```js
-const myName = "Luis Angel";
-const myAge = 2023 - 2001;
-```
-
-### Template literals or string literals
+## Template literals or string literals
 
 Backticks are amazing! donot more restrictions and we can use nextline spaces: `\n` and also **ternary operator** or variables (_any expression actually_) `${foo ? : \n}`
 
@@ -164,7 +147,7 @@ Backticks are amazing! donot more restrictions and we can use nextline spaces: `
 const phrase = `Text ${scapeJS} or ${variable}`;
 ```
 
-## Control structure
+## Control Structure
 
 ```js
 const a = 19;
@@ -184,18 +167,17 @@ if (b) {
 }
 ```
 
-### NaN
-
-Not a number (NaN) but really means "_an invalid number_", but the type still being one, how?
-
-```js
-typeof NaN; // number
-```
-
 ### The 6 falsy values
 
 ```js
 0, NaN, "", undefined, null, false;
+```
+### NaN
+
+Not a Number (NaN) really means "_an invalid number_", but the type still being one.
+
+```js
+typeof NaN; // number
 ```
 
 ## Boolean logical operators
@@ -205,6 +187,7 @@ AND | OR | NOT
 ```js
 const hasDriversLicense = true;
 const hasGoodVision = false;
+const canRun = true;
 
 // AND: both statements has to be true
 hasDriversLicense && hasGoodVision;
@@ -213,7 +196,7 @@ hasDriversLicense && hasGoodVision;
 hasDriversLicense || hasGoodVision;
 
 // NOT: invert the true/false values
-!hasGoodVision;
+!canRun;
 ```
 
 ### Switch statement
@@ -226,9 +209,6 @@ switch (day) {
     // without break, code continious executing
     break;
   case "tuesday":
-    // ...
-    break;
-  case "wednesday":
     // ...
     break;
   default: // the else
@@ -261,7 +241,7 @@ a >= 18 ? console.log(true) : console.log(false);
 a >= 18 ? console.log(true) : a == 16 ? console.log("") : console.log("");
 ```
 
-## Fundamentals part 2
+## Fundamentals Part 2
 
 ## `Functions`
 
@@ -286,7 +266,7 @@ add(5, 10); // 5 & 10 are arguments
 
 ### The 3 ways to use a function
 
-Function declaration
+Function Declaration
 
 ```js
 // can be invokate before declare it
@@ -390,7 +370,7 @@ const user = {
   lastName: "Arcega",
   occupation: "Software Developer",
   birthYear: 2001,
-  hobbies: ["code", "learn", "speak english"],
+  hobbies: ["code", "learn", "speak english", "gym"],
   hasDiversLicence: false,
   calcAge: function () {
     user.luisAge = 2024 - this.birthYear;
@@ -450,7 +430,7 @@ console.log(
 );
 ```
 
-## Control structures: Loops
+## Control Structures: Loops
 
 Keeps running while the condition is true
 

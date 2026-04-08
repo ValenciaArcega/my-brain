@@ -48,57 +48,6 @@ or in resources
 source={require("@/assets/some.png")}
 ```
 
-# Environment variables
-
-Once project folding arch its set. Lets create a `.env` and a `env.d.ts` file and ignore 'em at `.gitignore`.
-
-```bash
-react-native-dotenv
-```
-
-Inside `env.d.ts` we must to determinate the same name of our `.env` variables.
-
-```ts
-declare module '@env' {
-  export const API_URL: string;
-}
-```
-
-Add onto `tsconfig.json`:
-
-```json
-"compilerOptions": {
-  "types": [
-    "./env.d.ts"
-  ],
-}
-```
-
-Now just remains to add the plugin at the file `babel.config.js` (if exists for nativewind, if not just create it).
-
-```js
-const plugin = require('tailwindcss');
-
-module.exports = function (api) {
-  api.cache(true);
-  return {
-    presets: [
-      ['babel-preset-expo', { jsxImportSource: 'nativewind' }],
-      'nativewind/babel',
-    ],
-    plugins: [
-      [
-        'module:react-native-dotenv',
-        {
-          moduleName: '@env',
-          path: '.env',
-        },
-      ],
-    ],
-  };
-};
-```
-
 ## Appearance
 
 Set on `app.json` the property `"userInterfaceStyle": "automatic"`.
@@ -108,15 +57,16 @@ Set on `app.json` the property `"userInterfaceStyle": "automatic"`.
 ```bash
 expo-dev-client
 expo-haptics
+expo-clipboard
 expo-linear-gradient
 expo-system-ui
 expo-asset
-expo-constants
 expo-task-manager
 expo-symbols
 @expo/vector-icons
  
-react-native-mmkv 
+react-native-mmkv
+react-native-date-picker
 react-native-gesture-handler
 react-native-reanimated
 react-native-worklets
@@ -139,11 +89,6 @@ expo-local-authentication
 expo-secure-store
 expo-localization
 expo-splash-screen
-
-
-# Components or functions on other projects
-expo-clipboard
-react-native-date-picker
 
 # Other Util Dependencies
 react-native-qrcode-svg
@@ -186,11 +131,6 @@ Now to make a **prebuild version**.
 
 ```bash
 npx expo prebuild
-```
-
-Create the `local.properties` file on the *android* folder on macOS
-```bash
-sdk.dir=/Users/user-name/Library/Android/sdk
 ```
 
 To build and launch on 🤖 & 🍎

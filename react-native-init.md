@@ -25,8 +25,8 @@ Based on experience the following structure its the prefered.
       "@constants/*": ["src/constants/*"],
       "@contexts/*": ["src/contexts/*"],
       "@hooks/*": ["src/hooks/*"],
+      "@interfaces/*": ["src/interfaces/*"],
       "@routes/*": ["src/routes/*"],
-      "@types/*": ["src/types/*"],
       "@utils/*": ["src/utils/*"],
       "@views/*": ["src/views/*"],
       "@core/*": ["src/views/core/*"],
@@ -42,7 +42,7 @@ Now it's just simply as:
 import useSome from '@hooks/useSome';
 ```
 
-or resources
+or in resources
 
 ```js
 source={require("@/assets/some.png")}
@@ -107,18 +107,15 @@ Set on `app.json` the property `"userInterfaceStyle": "automatic"`.
 
 ```bash
 expo-dev-client
-expo-haptics 
-expo-blur
+expo-haptics
 expo-linear-gradient
 expo-system-ui
 expo-asset
-expo-sharing
 expo-constants
 expo-task-manager
 expo-symbols
 @expo/vector-icons
-
-@react-native-async-storage/async-storage 
+ 
 react-native-mmkv 
 react-native-gesture-handler
 react-native-reanimated

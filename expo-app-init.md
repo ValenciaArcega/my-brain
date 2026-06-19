@@ -16,21 +16,18 @@ Instantly configure the `tsconfig.json` file to allow access a route with the `@
 Based on experience the following structure its the prefered.
 
 ```json
-{
-  "compilerOptions": {
-    "strict": true,
-    "baseUrl": ".",
-    "paths": {
+"compilerOptions": {
+   "strict": true,
+   "paths": {
       "@/*": ["./*"],
-      "@components/*": ["src/components/*"],
-      "@contexts/*": ["src/contexts/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@interfaces/*": ["src/interfaces/*"],
-      "@routes/*": ["src/routes/*"],
-      "@utils/*": ["src/utils/*"],
-      "@views/*": ["src/views/*"],
+      "@components/*": ["./src/components/*"],
+      "@contexts/*": ["./src/contexts/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
+      "@routes/*": ["./src/routes/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@views/*": ["./src/views/*"]
     }
-  }
 }
 ```
 
@@ -50,30 +47,25 @@ Set on `app.json` the property `"userInterfaceStyle": "automatic"`.
 
 ```bash
 # Utils
-expo-dev-client expo-system-ui expo-haptics expo-symbols @react-native-vector-icons
+expo-dev-client expo-system-ui expo-haptics expo-symbols @react-native-vector-icons/ionicons expo-build-properties
+
+# ⚠️ Nativewind (tailwind) before
 
 # Fundamentals
-react-native-mmkv 
-react-native-gesture-handler
-react-native-reanimated
+react-native-mmkv react-native-gesture-handler react-native-reanimated
 react-native-worklets
 
 # Navigation
-@react-navigation/native 
-@react-navigation/native-stack
-react-native-safe-area-context 
-react-native-screens 
-react-native-bottom-tabs
+@react-navigation/native @react-navigation/native-stack react-native-safe-area-context react-native-screens 
 @bottom-tabs/react-navigation
+react-native-bottom-tabs
 
 # Config on app.json
-react-native-bottom-tabs
-expo-build-properties
+expo-splash-screen
 expo-camera
 expo-image-picker
 expo-local-authentication
 expo-localization
-expo-splash-screen
 
 # Other Util Dependencies
 react-native-gifted-charts

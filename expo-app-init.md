@@ -1,14 +1,15 @@
-# The ultimate guide to create App Expo 54^
+# The ultimate guide to create an Expo App
 
 Before to start it is important to understand how React Native components really works behind the scenes.
 So this is a real quick summary of how the **new architecture** works.
 
 https://reactnative.dev/docs/the-new-architecture/landing-page#fast-javascriptnative-interfacing
 
+# Create the app
 Empty template with TypeScript.
 
 ```bash
-npx create-expo-app@latest --template blank-typescript
+bunx create-expo-app@latest --template blank-typescript
 ```
 
 Instantly configure the `tsconfig.json` file to allow access a route with the `@` symbol.
@@ -22,15 +23,12 @@ Based on experience the following structure its the prefered.
     "paths": {
       "@/*": ["./*"],
       "@components/*": ["src/components/*"],
-      "@constants/*": ["src/constants/*"],
       "@contexts/*": ["src/contexts/*"],
       "@hooks/*": ["src/hooks/*"],
       "@interfaces/*": ["src/interfaces/*"],
       "@routes/*": ["src/routes/*"],
       "@utils/*": ["src/utils/*"],
       "@views/*": ["src/views/*"],
-      "@core/*": ["src/views/core/*"],
-      "@public/*": ["src/views/public/*"]
     }
   }
 }
@@ -40,11 +38,7 @@ Now it's just simply as:
 
 ```js
 import useSome from '@hooks/useSome';
-```
-
-or in resources
-
-```js
+/// in resources
 source={require("@/assets/some.png")}
 ```
 
@@ -55,18 +49,11 @@ Set on `app.json` the property `"userInterfaceStyle": "automatic"`.
 ## Dependencies
 
 ```bash
-expo-dev-client
-expo-haptics
-expo-clipboard
-expo-linear-gradient
-expo-system-ui
-expo-asset
-expo-task-manager
-expo-symbols
-@expo/vector-icons
- 
-react-native-mmkv
-react-native-date-picker
+# Utils
+expo-dev-client expo-system-ui expo-haptics expo-symbols @react-native-vector-icons
+
+# Fundamentals
+react-native-mmkv 
 react-native-gesture-handler
 react-native-reanimated
 react-native-worklets
@@ -81,62 +68,48 @@ react-native-bottom-tabs
 
 # Config on app.json
 react-native-bottom-tabs
-react-native-edge-to-edge
 expo-build-properties
 expo-camera
 expo-image-picker
 expo-local-authentication
-expo-secure-store
 expo-localization
 expo-splash-screen
 
 # Other Util Dependencies
-react-native-qrcode-svg
 react-native-gifted-charts
+react-native-date-picker
 ```
 
 ## Root App Stack for a good workflow
 
 ```js
 import "./global.css";
-import { cssInterop } from 'nativewind';
 import { NavigationContainer } from "@react-navigation/native"
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-cssInterop(Ionicons, {
-  className: {
-    target: 'style',
-    nativeStyleToProp: {
-      'color': 'color'
-    } as Record<string, string>
-  }
-});
-
 export default function App() {
-   return <SplashScreenWrapper>
-      <NavigationContainer>
-        <UserContext>
-            <GestureHandlerRootView>
-               <Router />
-            </GestureHandlerRootView>
-      </UserContext>
-   </NavigationContainer>
- </SplashScreenWrapper>
+   return (
+      <SplashScreenWrapper>
+        <NavigationContainer>
+            <UserContext>
+              <GestureHandlerRootView>
+                 <Router />
+              </GestureHandlerRootView>
+          </UserContext>
+        </NavigationContainer>
+      </SplashScreenWrapper>
+    )
 }
 ```
 
-Now to make a **prebuild version**.
-- Use the flag `--platform ios` to build on specific CNG
-- Use the flag `--clean` to clean the current native folders.
-
 ```bash
-npx expo prebuild
+bunx expo prebuild
 ```
 
-To build and launch on 🤖 & 🍎
+To build and launch on 🍎 & 🤖
 
 ```bash
-npx expo run:(ios|android)
+bunx expo run:(ios|android)
 ```
 
 Everything is ready to **rocket up**!  

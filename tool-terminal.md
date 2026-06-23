@@ -1,7 +1,5 @@
 # Custom zsh Profile
 
-Create the profile with the following command
-
 ```bash
 nano ~/.zshrc
 ```

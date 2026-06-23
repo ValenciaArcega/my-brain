@@ -20,18 +20,16 @@ Now every change on git repo tracking files, will generate a flow to control tho
 
 ## Git identity
 
-> 🇲🇽 Muchas herramientas de Git, como GitHub y GitLab, utilizan tu identidad de Git para mostrar información sobre tus commits y tu perfil de usuario. Por ejemplo, tu nombre y correo electrónico aparecerán en la página de historial de commits de cada repositorio y en tu perfil de usuario.
-
 To set the email it is neccessary to use
 
 ```bash
-git config --global user.email "yourEmail"
+git config --global user.email "ur-email"
 ```
 
 And to set the name
 
 ```bash
-git config --global user.name ""
+git config --global user.name "ur-name"
 ```
 
 # Staging area
@@ -39,29 +37,22 @@ git config --global user.name ""
 To save our files on a _preparation room_ we should to use the command
 
 ```bash
-git add anyFileOrDirectory.extension
+git add file.ts
 ```
 
 Then to check changes
 
 ```bash
 git status
-```
 
-The fanciest
-
-```bash
+# the fancy way
 git status --short | -s
 ```
-
-> A really popular but **NOT RECOMENDABLE** technique, is to use `git add .` to upload all the modified files to the staging area.
-
-☝️ This can be an option just when is really neccessary to upload all the files.
 
 If we want to add more than one file, we should just separate by spaces
 
 ```bash
-git add file.txt secondFile.txt
+git add file-01.txt file-02.txt
 ```
 
 ### Unstaged files
@@ -77,10 +68,8 @@ git rm --cached file.txt
 Now to really add the files into the _local-repo_
 
 ```bash
-git commit -m ""
+git commit -m "" # m extends of message
 ```
-
-> The flag `-m` means **_message_**
 
 If is neccessary to write a largest message on commit
 

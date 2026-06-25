@@ -11,10 +11,13 @@ Empty template with TypeScript.
 ```bash
 bunx create-expo-app@latest --template blank-typescript
 ```
+Screaming Arch
+```bash
+mkdir -p src/{components,contexts,hooks,interfaces,routes,utils,views}
+```
 
 Instantly configure the `tsconfig.json` file to allow access a route with the `@` symbol.
 Based on experience the following structure its the prefered.
-
 ```json
 "compilerOptions": {
    "strict": true,
@@ -47,21 +50,16 @@ Set on `app.json` the property `"userInterfaceStyle": "automatic"`.
 
 ```bash
 # Utils
-expo-dev-client expo-system-ui expo-haptics expo-symbols @react-native-vector-icons/ionicons expo-build-properties
-
-# ⚠️ Nativewind (tailwind) before
-
-# Fundamentals
-react-native-mmkv react-native-gesture-handler react-native-reanimated
-react-native-worklets
+expo-dev-client expo-system-ui expo-haptics expo-symbols @react-native-vector-icons/ionicons expo-build-properties expo-splash-screen @expo/ui
+# ⚠️ tailwind before to set babel config
+react-native-mmkv react-native-gesture-handler
+react-native-reanimated react-native-worklets
 
 # Navigation
-@react-navigation/native @react-navigation/native-stack react-native-safe-area-context react-native-screens 
-@bottom-tabs/react-navigation
-react-native-bottom-tabs
+@react-navigation/native @react-navigation/native-stack react-native-safe-area-context react-native-screens
+@bottom-tabs/react-navigation react-native-bottom-tabs
 
 # Config on app.json
-expo-splash-screen
 expo-camera
 expo-image-picker
 expo-local-authentication
@@ -75,7 +73,6 @@ react-native-date-picker
 ## Root App Stack for a good workflow
 
 ```js
-import "./global.css";
 import { NavigationContainer } from "@react-navigation/native"
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
@@ -83,11 +80,11 @@ export default function App() {
    return (
       <SplashScreenWrapper>
         <NavigationContainer>
-            <UserContext>
-              <GestureHandlerRootView>
-                 <Router />
-              </GestureHandlerRootView>
-          </UserContext>
+            <GestureHandlerRootView>
+             <SessionContext>
+               <Router />
+             </SessionContext>
+           </GestureHandlerRootView>
         </NavigationContainer>
       </SplashScreenWrapper>
     )
